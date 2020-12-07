@@ -50,7 +50,26 @@ func main() {
     }
 
   }
-  
+
+  var htmlTop string = fmt.Sprintf(`
+<!--
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>%s</title>
+        <style>
+            background-color: %s;
+            background-image: %s;
+            text-align: %s;
+            margin: %s;
+            border-style: %s;
+        </style>
+      </head>
+    `, pTitle, pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
+
+  var htmlComplete string = htmlTop + "\n\t<body>" + htmlBody + "\n\n" + "\n\t</body>\n</html>\n"
+
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
     fileName = append(fileName, ".html")
@@ -64,5 +83,5 @@ func main() {
     fmt.Printf("Unable to create file: %s\n", htmlFileName)
     os.Exit(1)
   }
-  htmlFile.WriteString(string(byteStream))
+  htmlFile.WriteString(htmlComplete)
 }
