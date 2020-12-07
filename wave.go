@@ -15,6 +15,13 @@ var pAlign string = "left"
 var pBox string = "0"
 var pBoxStyle string = "hidden"
 
+
+var cSize string = "17"
+var cColor string = "black"
+var cBox string = "0"
+var cAlign string
+var cBGcolor string
+
 func main() {
   var sourceName string = os.Args[1]
 
@@ -30,23 +37,35 @@ func main() {
     tokens := strings.Split(strings.TrimSpace(line), " ")
     property := strings.Join(tokens[1:], " ")
 
-    if tokens[0] == "~title" {
-      pTitle = property
+    switch tokens[0] {
+      case "~title":
+        pTitle = property
+      case "~bg":
+        pBGcolor = property
+      case "~pic":
+        pBGimage = property
+      case "~align":
+        pAlign = property
+      case "~box":
+        pBox = property
+      case "~box-style":
+        pBoxStyle = property
     }
-    if tokens[0] == "~bg" {
-      pBGcolor = property
-    }
-    if tokens[0] == "~pic" {
-      pBGimage = property
-    }
-    if tokens[0] == "~align" {
-      pAlign = property
-    }
-    if tokens[0] == "~box" {
-      pBox = property
-    }
-    if tokens[0] == "~box-style" {
-      pBoxStyle = property
+
+    cAlign = pAlign
+    cBGcolor = pBGcolor
+
+    switch tokens[0] {
+      case "!size":
+        cSize = property
+      case "!color":
+        cColor = property
+      case "!box":
+        cBox = property
+      case "!align":
+        cAlign = property
+      case "!bg":
+        cBGcolor = property
     }
 
   }
