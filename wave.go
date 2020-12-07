@@ -53,22 +53,27 @@ func main() {
 
   var htmlTop string = fmt.Sprintf(`
 <!--
+This Document is generated using Wave.
+Wave: https://www.github.com/KILLinefficiency/Wave
 -->
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>%s</title>
         <style>
-            background-color: %s;
-            background-image: %s;
-            text-align: %s;
-            margin: %s;
-            border-style: %s;
+          body {
+              background-color: %s;
+              background-image: %s;
+              text-align: %s;
+              margin: %s;
+              border-style: %s;
+          }
         </style>
       </head>
     `, pTitle, pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
 
-  var htmlComplete string = htmlTop + "\n\t<body>" + htmlBody + "\n\n" + "\n\t</body>\n</html>\n"
+  var htmlComplete string = htmlTop + "\n\t\t<body>" + htmlBody + "\n\n" + "\n\t\t</body>\n\n</html>\n"
 
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
