@@ -22,6 +22,11 @@ var cColor string = "black"
 var cBox string = "0"
 var cAlign string
 var cBGcolor string
+var cWidth string = "none"
+var cHeight string = "none"
+var cDelimiter string = ";"
+var cLink string = "https://www.github.com/KILLinefficiency/Wave"
+var cTitle string = "Wave"
 
 func strMultiply(strText string, times int) string {
   var strFinal string
@@ -76,6 +81,12 @@ func main() {
         cAlign = property
       case "!bg":
         cBGcolor = property
+      case "!dim":
+        widthHeight := strings.Split(property, "x")
+        cWidth = strings.TrimSpace(widthHeight[0])
+        cHeight = strings.TrimSpace(widthHeight[1])
+      case "!sep":
+        cDelimiter = property
     }
 
     switch tokens[0] {
@@ -87,6 +98,13 @@ func main() {
         }
         times, _ := strconv.Atoi(property)
         htmlBody += fmt.Sprintf("\t\t%s\n", strMultiply("<br>", times))
+      case "$link":
+        linkTitle := strings.Split(property, cDelimiter)
+        if len(linkTitle) > 1 {
+          cLink = strings.TrimSpace(linkTitle[0])
+          cTitle = strings.TrimSpace(linkTitle[1])
+        }
+        htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cTitle)
     }
 
   }
