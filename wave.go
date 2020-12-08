@@ -112,6 +112,8 @@ func main() {
           cTitle = strings.TrimSpace(linkTitle[1])
         }
         htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cTitle)
+      case "$pic":
+        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", cAlign, cBox, cWidth, cHeight, property)
     }
 
   }
@@ -138,7 +140,7 @@ Wave: https://www.github.com/KILLinefficiency/Wave
       </head>
     `, pTitle, pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
 
-  var htmlComplete string = htmlTop + "\n\t\t<body>\n" + htmlBody + "\n" + "\t\t</body>\n\n</html>\n"
+  var htmlComplete string = htmlTop + "\n\t\t<body>\n" + htmlBody + "\t\t</body>\n\n</html>\n"
 
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
