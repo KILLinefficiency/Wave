@@ -156,7 +156,7 @@ Wave: https://www.github.com/KILLinefficiency/Wave
   htmlFileName := strings.Join(fileName, "")
   htmlFile, err := os.Create(htmlFileName)
   if err != nil {
-    fmt.Printf("Unable to create file: %s\n\nHeres's the source code for the traspiled document: %s\n", htmlFileName, htmlComplete)
+    fmt.Printf("Unable to create file: %s\n\nSource Code for the Document:\n\n%s\n", htmlFileName, htmlComplete)
     os.Exit(1)
   }
   htmlFile.WriteString(htmlComplete)
