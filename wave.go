@@ -92,6 +92,13 @@ func main() {
     switch tokens[0] {
       case "$text":
         htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, property)
+      case "$file":
+        textFile, _ := ioutil.ReadFile(property)
+        var fileStr string = string(textFile)
+        fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
+        fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
+        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", 4), -1)
+        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, fileStr)
       case "$nl":
         if len(tokens) == 1 {
           property = "1"
