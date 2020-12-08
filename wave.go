@@ -4,6 +4,7 @@ import (
   "os"
   "fmt"
   "strings"
+  "strconv"
   "io/ioutil"
 )
 
@@ -15,12 +16,20 @@ var pAlign string = "left"
 var pBox string = "0"
 var pBoxStyle string = "hidden"
 
-
+var cFont string = "Arial"
 var cSize string = "17"
 var cColor string = "black"
 var cBox string = "0"
 var cAlign string
 var cBGcolor string
+
+func strMultiply(strText string, times int) string {
+  var strFinal string
+  for loop := 0; loop < times; loop = loop + 1 {
+    strFinal = strFinal + strText
+  }
+  return strFinal
+}
 
 func main() {
   var sourceName string = os.Args[1]
@@ -42,20 +51,21 @@ func main() {
         pTitle = property
       case "~bg":
         pBGcolor = property
+        cBGcolor = pBGcolor
       case "~pic":
         pBGimage = property
       case "~align":
         pAlign = property
+        cAlign = pAlign
       case "~box":
         pBox = property
       case "~box-style":
         pBoxStyle = property
     }
 
-    cAlign = pAlign
-    cBGcolor = pBGcolor
-
     switch tokens[0] {
+      case "!font":
+        cFont = property
       case "!size":
         cSize = property
       case "!color":
@@ -66,6 +76,17 @@ func main() {
         cAlign = property
       case "!bg":
         cBGcolor = property
+    }
+
+    switch tokens[0] {
+      case "$text":
+        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, property)
+      case "$nl":
+        if len(tokens) == 1 {
+          property = "1"
+        }
+        times, _ := strconv.Atoi(property)
+        htmlBody += fmt.Sprintf("\t\t%s\n", strMultiply("<br>", times))
     }
 
   }
@@ -85,14 +106,14 @@ Wave: https://www.github.com/KILLinefficiency/Wave
               background-color: %s;
               background-image: %s;
               text-align: %s;
-              margin: %s;
+              margin: %spx;
               border-style: %s;
           }
         </style>
       </head>
     `, pTitle, pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
 
-  var htmlComplete string = htmlTop + "\n\t\t<body>" + htmlBody + "\n\n" + "\n\t\t</body>\n\n</html>\n"
+  var htmlComplete string = htmlTop + "\n\t\t<body>\n" + htmlBody + "\n" + "\t\t</body>\n\n</html>\n"
 
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
@@ -108,4 +129,5 @@ Wave: https://www.github.com/KILLinefficiency/Wave
     os.Exit(1)
   }
   htmlFile.WriteString(htmlComplete)
+  htmlFile.Close()
 }
