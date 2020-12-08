@@ -112,8 +112,12 @@ func main() {
           cTitle = strings.TrimSpace(linkTitle[1])
         }
         htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cTitle)
+      case "$quote":
+        htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
       case "$pic":
         htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", cAlign, cBox, cWidth, cHeight, property)
+      case "$html":
+        htmlBody += fmt.Sprintf("\t\t%s\n", property)
     }
 
   }
@@ -152,7 +156,7 @@ Wave: https://www.github.com/KILLinefficiency/Wave
   htmlFileName := strings.Join(fileName, "")
   htmlFile, err := os.Create(htmlFileName)
   if err != nil {
-    fmt.Printf("Unable to create file: %s\n", htmlFileName)
+    fmt.Printf("Unable to create file: %s\n\nHeres's the source code for the traspiled document: %s\n", htmlFileName, htmlComplete)
     os.Exit(1)
   }
   htmlFile.WriteString(htmlComplete)
