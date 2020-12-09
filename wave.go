@@ -16,6 +16,7 @@ var pAlign string = "left"
 var pBox string = "0"
 var pBoxStyle string = "hidden"
 
+var cTab int = 4
 var cFont string = "Arial"
 var cSize string = "17"
 var cColor string = "black"
@@ -41,7 +42,7 @@ func strMultiply(strText string, times int) string {
 
 func main() {
   if len(os.Args) == 1 {
-    fmt.Printf("Help here.\n")
+    fmt.Printf("No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n")
     os.Exit(1)
   }
 
@@ -77,6 +78,9 @@ func main() {
     }
 
     switch tokens[0] {
+      case "!tab":
+        tabNumber, _ := strconv.Atoi(property)
+        cTab = tabNumber
       case "!font":
         cFont = property
       case "!size":
@@ -110,15 +114,15 @@ func main() {
 
     switch tokens[0] {
       case "$text":
-        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, property)
+        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, property)
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
         var fileStr string = string(textFile)
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
-        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", 4), -1)
-        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle,fileStr)
+        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", cTab), -1)
+        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle,fileStr)
 
       case "$nl":
         if len(tokens) == 1 {
@@ -133,7 +137,7 @@ func main() {
           cLink = strings.TrimSpace(linkTitle[0])
           cTitle = strings.TrimSpace(linkTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %s; border-style: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cTitle)
+        htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cTitle)
 
       case "$points":
         listPoints := strings.Split(property, cDelimiter)
@@ -148,7 +152,7 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %s; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", cAlign, cBox, cBoxStyle,cWidth, cHeight, property)
+        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", cAlign, cBox, cBoxStyle,cWidth, cHeight, property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
