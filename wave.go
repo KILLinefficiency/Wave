@@ -110,6 +110,16 @@ func main() {
         cHeight = strings.TrimSpace(widthHeight[1])
       case "!sep":
         cDelimiter = property
+      case "!default":
+        cTab, cFont = 4, "Arial"
+        cSize, cColor = "17", "black"
+        cBox, cBoxStyle = "0", "hidden"
+        cBoxStyle = "hidden"
+        cAlign, cBGcolor = "", ""
+        cPointsType, cPointsStyle = "ul", "disc"
+        cWidth, cHeight = "none", "none"
+        cLink, cTitle = "https://www.github.com/KILLinefficiency/Wave", "Wave"
+        cDelimiter = ";"
     }
 
     switch tokens[0] {
