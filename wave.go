@@ -30,7 +30,8 @@ var cWidth string = "none"
 var cHeight string = "none"
 var cDelimiter string = ";"
 var cLink string = "https://www.github.com/KILLinefficiency/Wave"
-var cTitle string = "Wave"
+var cMailTitle, cMailAddress string
+var cLinkTitle string = "Wave"
 
 func strMultiply(strText string, times int) string {
   var strFinal string
@@ -118,13 +119,16 @@ func main() {
         cAlign, cBGcolor = "", ""
         cPointsType, cPointsStyle = "ul", "disc"
         cWidth, cHeight = "none", "none"
-        cLink, cTitle = "https://www.github.com/KILLinefficiency/Wave", "Wave"
+        cLink, cLinkTitle = "https://www.github.com/KILLinefficiency/Wave", "Wave"
+        cMailAddress, cMailTitle = "", ""
         cDelimiter = ";"
     }
 
+    var cssBody string = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle)
+
     switch tokens[0] {
       case "$text":
-        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, property)
+        htmlBody += fmt.Sprintf("\t\t<p %s>%s</p>\n", cssBody, property)
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
@@ -132,7 +136,7 @@ func main() {
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
         fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", cTab), -1)
-        htmlBody += fmt.Sprintf("\t\t<p style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</p>\n", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle,fileStr)
+        htmlBody += fmt.Sprintf("\t\t<p %s>%s</p>\n", cssBody, fileStr)
 
       case "$nl":
         if len(tokens) == 1 {
@@ -145,9 +149,17 @@ func main() {
         linkTitle := strings.Split(property, cDelimiter)
         if len(linkTitle) > 1 {
           cLink = strings.TrimSpace(linkTitle[0])
-          cTitle = strings.TrimSpace(linkTitle[1])
+          cLinkTitle = strings.TrimSpace(linkTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = %s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s;'>%s</a>\n", cLink, cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cTitle)
+        htmlBody += fmt.Sprintf("\t\t<a href = '%s' %s>%s</a>\n", cLink, cssBody, cLinkTitle)
+
+      case "$mail":
+        mailTitle := strings.Split(property, cDelimiter)
+        if len(mailTitle) > 1 {
+          cMailAddress = strings.TrimSpace(mailTitle[0])
+          cMailTitle = strings.TrimSpace(mailTitle[1])
+        }
+        htmlBody += fmt.Sprintf("\t\t<a href = 'mailto:%s' %s>%s</a>\n", cMailAddress, cssBody, cMailTitle)
 
       case "$points":
         listPoints := strings.Split(property, cDelimiter)
@@ -155,7 +167,7 @@ func main() {
         for _, point := range listPoints {
           allPoints += fmt.Sprintf("\t\t\t<li>%s</li>\n", strings.TrimSpace(point))
         }
-        var pointsBody string = fmt.Sprintf("\t\t<%s style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'>\n%s\t\t</%s>\n", cPointsType, cFont, cColor,cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle, allPoints, cPointsType)
+        var pointsBody string = fmt.Sprintf("\t\t<%s %s>\n%s\t\t</%s>\n", cPointsType, cssBody, allPoints, cPointsType)
         htmlBody += pointsBody
 
       case "$quote":
