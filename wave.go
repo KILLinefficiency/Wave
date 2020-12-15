@@ -195,6 +195,14 @@ func main() {
         }
         htmlBody += fmt.Sprintf("\t\t<div %s>\n\t\t\t<table %s>\n%s\t\t\t</table>\n\t\t</div>\n", cssBody, tableBorder, tableBody)
 
+      case "$check":
+        checkPoints := strings.Split(property, cDelimiter)
+        var checkPointsBody string
+        for _, points := range checkPoints {
+          checkPointsBody += fmt.Sprintf("\t\t\t<input type = 'checkbox'>%s<br>\n", strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
+        }
+        htmlBody += fmt.Sprintf("\t\t<div %s>\n%s\t\t</div>\n", cssBody, checkPointsBody)
+
       case "$quote":
         htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
 
