@@ -9,6 +9,8 @@ import (
 )
 
 var htmlBody string
+var cssBody string
+
 var pTitle string = "Wave Document"
 var pBGcolor string = "white"
 var pBGimage string = "none"
@@ -124,7 +126,7 @@ func main() {
         cDelimiter = ";"
     }
 
-    var cssBody string = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle)
+    cssBody = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle)
 
     switch tokens[0] {
       case "$text":
