@@ -36,6 +36,7 @@ var (
   cWidth string = "none"
   cHeight string = "none"
   cDelimiter string = ";"
+  cTableDelimiter = "|"
   cLink string = "https://www.github.com/KILLinefficiency/Wave"
   cMailTitle, cMailAddress string
   cLinkTitle string = "Wave"
@@ -119,6 +120,8 @@ func main() {
         cHeight = strings.TrimSpace(widthHeight[1])
       case "!sep":
         cDelimiter = property
+      case "!colsep":
+        cTableDelimiter = property
       case "!default":
         cTab, cFont = 4, "Arial"
         cSize, cColor = "17", "black"
@@ -129,7 +132,7 @@ func main() {
         cWidth, cHeight = "none", "none"
         cLink, cLinkTitle = "https://www.github.com/KILLinefficiency/Wave", "Wave"
         cMailAddress, cMailTitle = "", ""
-        cDelimiter = ";"
+        cDelimiter, cTableDelimiter = ";", "|"
     }
 
     cssBody = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle)
@@ -177,6 +180,19 @@ func main() {
         }
         var pointsBody string = fmt.Sprintf("\t\t<%s %s>\n%s\t\t</%s>\n", cPointsType, cssBody, allPoints, cPointsType)
         htmlBody += pointsBody
+
+      case "$table":
+        var tableBody string
+        tableRows := strings.Split(property, cTableDelimiter)
+        for _, rowValues := range tableRows {
+          values := strings.Split(rowValues, cDelimiter)
+          var rowBody string
+          for _, addValues := range values {
+            rowBody += fmt.Sprintf("\t\t\t\t<td>%s</td>\n", strings.TrimSpace(addValues))
+          }
+          tableBody += fmt.Sprintf("\t\t\t<tr>\n%s\t\t\t</tr>\n", rowBody)
+        }
+        htmlBody += fmt.Sprintf("\t\t<table %s>\n%s\n\t\t</table>\n", cssBody, tableBody)
 
       case "$quote":
         htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
