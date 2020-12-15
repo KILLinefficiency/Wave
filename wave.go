@@ -183,16 +183,17 @@ func main() {
 
       case "$table":
         var tableBody string
+        var tableBorder string = "style = 'border: 2px solid black;'"
         tableRows := strings.Split(property, cTableDelimiter)
         for _, rowValues := range tableRows {
           values := strings.Split(rowValues, cDelimiter)
           var rowBody string
           for _, addValues := range values {
-            rowBody += fmt.Sprintf("\t\t\t\t<td>%s</td>\n", strings.TrimSpace(addValues))
+            rowBody += fmt.Sprintf("\t\t\t\t\t<td %s>%s</td>\n", tableBorder, strings.TrimSpace(addValues))
           }
-          tableBody += fmt.Sprintf("\t\t\t<tr>\n%s\t\t\t</tr>\n", rowBody)
+          tableBody += fmt.Sprintf("\t\t\t\t<tr %s>\n%s\t\t\t\t</tr>\n", tableBorder, rowBody)
         }
-        htmlBody += fmt.Sprintf("\t\t<table %s>\n%s\n\t\t</table>\n", cssBody, tableBody)
+        htmlBody += fmt.Sprintf("\t\t<div %s>\n\t\t\t<table %s>\n%s\t\t\t</table>\n\t\t</div>\n", cssBody, tableBorder, tableBody)
 
       case "$quote":
         htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
