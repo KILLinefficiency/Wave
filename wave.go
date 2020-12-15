@@ -8,32 +8,38 @@ import (
   "io/ioutil"
 )
 
-var htmlBody string
-var cssBody string
+var (
+  htmlBody string
+  cssBody string
+)
 
-var pTitle string = "Wave Document"
-var pBGcolor string = "white"
-var pBGimage string = "none"
-var pAlign string = "left"
-var pBox string = "0"
-var pBoxStyle string = "hidden"
+var (
+  pTitle string = "Wave Document"
+  pBGcolor string = "white"
+  pBGimage string = "none"
+  pAlign string = "left"
+  pBox string = "0"
+  pBoxStyle string = "hidden"
+)
 
-var cTab int = 4
-var cFont string = "Arial"
-var cSize string = "17"
-var cColor string = "black"
-var cBox string = "0"
-var cBoxStyle string = "hidden"
-var cAlign string
-var cBGcolor string
-var cPointsType string = "ul"
-var cPointsStyle string = "disc"
-var cWidth string = "none"
-var cHeight string = "none"
-var cDelimiter string = ";"
-var cLink string = "https://www.github.com/KILLinefficiency/Wave"
-var cMailTitle, cMailAddress string
-var cLinkTitle string = "Wave"
+var (
+  cTab int = 4
+  cFont string = "Arial"
+  cSize string = "17"
+  cColor string = "black"
+  cBox string = "0"
+  cBoxStyle string = "hidden"
+  cAlign string
+  cBGcolor string
+  cPointsType string = "ul"
+  cPointsStyle string = "disc"
+  cWidth string = "none"
+  cHeight string = "none"
+  cDelimiter string = ";"
+  cLink string = "https://www.github.com/KILLinefficiency/Wave"
+  cMailTitle, cMailAddress string
+  cLinkTitle string = "Wave"
+)
 
 func strMultiply(strText string, times int) string {
   var strFinal string
