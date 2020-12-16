@@ -215,29 +215,10 @@ func main() {
 
   }
 
-  var htmlTop string = fmt.Sprintf(`
-<!--
-This Document is generated using Wave.
-Wave: https://www.github.com/KILLinefficiency/Wave
--->
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>%s</title>
-        <style>
-          body {
-              background-color: %s;
-              background-image: %s;
-              text-align: %s;
-              margin: %spx;
-              border-style: %s;
-          }
-        </style>
-      </head>
-    `, pTitle, pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
-
-  var htmlComplete string = htmlTop + "\n\t\t<body>\n" + htmlBody + "\t\t</body>\n\n</html>\n"
+  var waveMark string = "\n<!--\nThis Document is generated using Wave.\nWave: https://www.github.com/KILLinefficiency/Wave\n-->\n\n"
+  var htmlTopBody string = fmt.Sprintf("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>\n", pTitle)
+  var htmlCSS string = fmt.Sprintf("\t<body style = 'background-color: %s; background-image: %s; text-align: %s; margin: %spx; border-style: %s;'>\n", pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
+  var htmlComplete string = waveMark + htmlTopBody + htmlCSS + htmlBody + "\t</body>\n</html>\n"
 
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
