@@ -42,14 +42,6 @@ var (
   cLinkTitle string = "Wave"
 )
 
-func strMultiply(strText string, times int) string {
-  var strFinal string
-  for loop := 0; loop < times; loop = loop + 1 {
-    strFinal = strFinal + strText
-  }
-  return strFinal
-}
-
 func main() {
   if len(os.Args) == 1 {
     fmt.Printf("No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n")
