@@ -12,4 +12,16 @@ var themes = map[string]map[string]string {
     "magenta":   "#C678DD",
     "cyan":      "#56B6C2",
   },
+
+  "Dracula": {
+    "bg":        "#282A36",
+    "black":     "#000000",
+    "white":     "#BFBFBF",
+    "red":       "#FF5555",
+    "green":     "#50FA7B",
+    "yellow":    "#F1FA8C",
+    "blue":      "#BD93F9",
+    "magenta":   "#FF79C6",
+    "cyan":      "#8BE9FD",
+  },
 }
