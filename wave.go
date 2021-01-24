@@ -13,35 +13,6 @@ var (
   cssBody string
 )
 
-var (
-  pTitle string = "Wave Document"
-  pBGcolor string = "white"
-  pBGimage string = "none"
-  pAlign string = "left"
-  pBox string = "0"
-  pBoxStyle string = "hidden"
-)
-
-var (
-  cTab int = 4
-  cFont string = "Arial"
-  cSize string = "17"
-  cColor string = "black"
-  cBox string = "0"
-  cBoxStyle string = "hidden"
-  cAlign string
-  cBGcolor string
-  cPointsType string = "ul"
-  cPointsStyle string = "disc"
-  cWidth string = "none"
-  cHeight string = "none"
-  cDelimiter string = ";"
-  cTableDelimiter = "|"
-  cLink string = "https://www.github.com/KILLinefficiency/Wave"
-  cMailTitle, cMailAddress string
-  cLinkTitle string = "Wave"
-)
-
 func main() {
   if len(os.Args) == 1 {
     fmt.Printf("No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n")
@@ -64,70 +35,60 @@ func main() {
 
     switch tokens[0] {
       case "~title":
-        pTitle = property
+        pageDefaults["pTitle"] = property
       case "~bg":
-        pBGcolor = property
-        cBGcolor = pBGcolor
+        pageDefaults["pBGcolor"] = property
+        contentDefaults["cBGcolor"] = pageDefaults["pBGcolor"]
       case "~pic":
-        pBGimage = property
+        pageDefaults["pBGimage"] = property
       case "~align":
-        pAlign = property
-        cAlign = pAlign
+        pageDefaults["pAlign"] = property
+        contentDefaults["cAlign"] = pageDefaults["pAlign"]
       case "~box":
-        pBox = property
+        pageDefaults["pBox"] = property
       case "~box-style":
-        pBoxStyle = property
+        pageDefaults["pBoxStyle"] = property
     }
 
     switch tokens[0] {
       case "!tab":
-        tabNumber, _ := strconv.Atoi(property)
-        cTab = tabNumber
+        contentDefaults["cTab"] = property
       case "!font":
-        cFont = property
+        contentDefaults["cFont"] = property
       case "!size":
-        cSize = property
+        contentDefaults["cSize"] = property
       case "!color":
-        cColor = property
+        contentDefaults["cColor"] = property
       case "!box":
-        cBox = property
+        contentDefaults["cBox"] = property
       case "!box-style":
-        cBoxStyle = property
+        contentDefaults["cBoxStyle"] = property
       case "!align":
-        cAlign = property
+        contentDefaults["cAlign"] = property
       case "!bg":
-        cBGcolor = property
+        contentDefaults["cBGcolor"] = property
       case "!points-type":
         if property == "ordered" {
-          cPointsType = "ol"
+          contentDefaults["cPointsType"] = "ol"
         }
         if property == "unordered" {
-          cPointsType = "ul"
+          contentDefaults["cPointsType"] = "ul"
         }
       case "!points-style":
-        cPointsStyle = property
+        contentDefaults["cPointsStyle"] = property
       case "!dim":
         widthHeight := strings.Split(property, "x")
-        cWidth = strings.TrimSpace(widthHeight[0])
-        cHeight = strings.TrimSpace(widthHeight[1])
+        contentDefaults["cWidth"] = strings.TrimSpace(widthHeight[0])
+        contentDefaults["cHeight"] = strings.TrimSpace(widthHeight[1])
       case "!sep":
-        cDelimiter = property
+        contentDefaults["cDelimiter"] = property
       case "!colsep":
-        cTableDelimiter = property
+        contentDefaults["cTableDelimiter"] = property
       case "!default":
-        cTab, cFont = 4, "Arial"
-        cSize, cColor = "17", "black"
-        cBox, cBoxStyle = "0", "hidden"
-        cBoxStyle = "hidden"
-        cAlign, cBGcolor = "", ""
-        cPointsType, cPointsStyle = "ul", "disc"
-        cWidth, cHeight = "none", "none"
-        cLink, cLinkTitle = "https://www.github.com/KILLinefficiency/Wave", "Wave"
-        cMailAddress, cMailTitle = "", ""
-        cDelimiter, cTableDelimiter = ";", "|"
+        fmt.Println("will do this later brrr...")
     }
 
-    cssBody = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", cFont, cColor, cBGcolor, cSize, cAlign, cBox, cBoxStyle, cPointsStyle)
+    cssBody = fmt.Sprintf("style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'", contentDefaults["cFont"], contentDefaults["cColor"], contentDefaults["cBGcolor"], contentDefaults["cSize"], contentDefaults["cAlign"], contentDefaults["cBox"], contentDefaults["cBoxStyle"], contentDefaults["cPointsStyle"])
 
     switch tokens[0] {
       case "$text":
@@ -135,10 +96,11 @@ func main() {
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
+        tabNumber, _ := strconv.Atoi(contentDefaults["cTab"])
         var fileStr string = string(textFile)
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
-        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", cTab), -1)
+        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", tabNumber), -1)
         htmlBody += fmt.Sprintf("\t\t<p %s>%s</p>\n", cssBody, fileStr)
 
       case "$nl":
@@ -149,36 +111,36 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t%s\n", strMultiply("<br>", times))
 
       case "$link":
-        linkTitle := strings.Split(property, cDelimiter)
+        linkTitle := strings.Split(property, contentDefaults["cDelimiter"])
         if len(linkTitle) > 1 {
-          cLink = strings.TrimSpace(linkTitle[0])
-          cLinkTitle = strings.TrimSpace(linkTitle[1])
+          contentDefaults["cLink"] = strings.TrimSpace(linkTitle[0])
+          contentDefaults["cLinkTitle"] = strings.TrimSpace(linkTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = '%s' %s>%s</a>\n", cLink, cssBody, cLinkTitle)
+        htmlBody += fmt.Sprintf("\t\t<a href = '%s' %s>%s</a>\n", contentDefaults["cLink"], cssBody, contentDefaults["cLinkTitle"])
 
       case "$mail":
-        mailTitle := strings.Split(property, cDelimiter)
+        mailTitle := strings.Split(property, contentDefaults["cDelimiter"])
         if len(mailTitle) > 1 {
-          cMailAddress = strings.TrimSpace(mailTitle[0])
-          cMailTitle = strings.TrimSpace(mailTitle[1])
+          contentDefaults["cMailAddress"] = strings.TrimSpace(mailTitle[0])
+          contentDefaults["cMailTitle"] = strings.TrimSpace(mailTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = 'mailto:%s' %s>%s</a>\n", cMailAddress, cssBody, cMailTitle)
+        htmlBody += fmt.Sprintf("\t\t<a href = 'mailto:%s' %s>%s</a>\n", contentDefaults["cMailAddress"], cssBody, contentDefaults["cMailTitle"])
 
       case "$points":
-        listPoints := strings.Split(property, cDelimiter)
+        listPoints := strings.Split(property, contentDefaults["cDelimiter"])
         var allPoints string
         for _, point := range listPoints {
           allPoints += fmt.Sprintf("\t\t\t<li>%s</li>\n", strings.TrimSpace(point))
         }
-        var pointsBody string = fmt.Sprintf("\t\t<%s %s>\n%s\t\t</%s>\n", cPointsType, cssBody, allPoints, cPointsType)
+        var pointsBody string = fmt.Sprintf("\t\t<%s %s>\n%s\t\t</%s>\n", contentDefaults["cPointsType"], cssBody, allPoints, contentDefaults["cPointsType"])
         htmlBody += pointsBody
 
       case "$table":
         var tableBody string
         var tableBorder string = "style = 'border: 2px solid black;'"
-        tableRows := strings.Split(property, cTableDelimiter)
+        tableRows := strings.Split(property, contentDefaults["cTableDelimiter"])
         for _, rowValues := range tableRows {
-          values := strings.Split(rowValues, cDelimiter)
+          values := strings.Split(rowValues, contentDefaults["cDelimiter"])
           var rowBody string
           for _, addValues := range values {
             rowBody += fmt.Sprintf("\t\t\t\t\t<td %s>%s</td>\n", tableBorder, strings.TrimSpace(addValues))
@@ -188,7 +150,7 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t<div %s>\n\t\t\t<table %s>\n%s\t\t\t</table>\n\t\t</div>\n", cssBody, tableBorder, tableBody)
 
       case "$check":
-        checkPoints := strings.Split(property, cDelimiter)
+        checkPoints := strings.Split(property, contentDefaults["cDelimiter"])
         var checkPointsBody string
         for _, points := range checkPoints {
           checkPointsBody += fmt.Sprintf("\t\t\t<input type = 'checkbox'>%s<br>\n", strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
@@ -199,7 +161,7 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", cAlign, cBox, cBoxStyle,cWidth, cHeight, property)
+        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", contentDefaults["cAlign"], contentDefaults["cBox"], contentDefaults["cBoxStyle"],contentDefaults["cWidth"], contentDefaults["cHeight"], property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
@@ -208,8 +170,8 @@ func main() {
   }
 
   var waveMark string = "\n<!--\nThis Document is generated using Wave.\nWave: https://www.github.com/KILLinefficiency/Wave\n-->\n\n"
-  var htmlTopBody string = fmt.Sprintf("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>\n", pTitle)
-  var htmlCSS string = fmt.Sprintf("\t<body style = 'background-color: %s; background-image: %s; text-align: %s; margin: %spx; border-style: %s;'>\n", pBGcolor, pBGimage, pAlign, pBox, pBoxStyle)
+  var htmlTopBody string = fmt.Sprintf("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>\n", pageDefaults["pTitle"])
+  var htmlCSS string = fmt.Sprintf("\t<body style = 'background-color: %s; background-image: %s; text-align: %s; margin: %spx; border-style: %s;'>\n", pageDefaults["pBGcolor"], pageDefaults["pBGimage"], pageDefaults["pAlign"], pageDefaults["pBox"], pageDefaults["pBoxStyle"])
   var htmlComplete string = waveMark + htmlTopBody + htmlCSS + htmlBody + "\t</body>\n</html>\n"
 
   fileName := strings.Split(sourceName, ".")
