@@ -41,10 +41,20 @@ var themes = map[string]map[string]string {
   },
 
   "GruvboxLight": {
-    "bg":        "",
+    "fg":        "#3C3836",
+    "bg":        "#FBF1C7",
+    "white":     "#EBDBB2",
+    "red":       "#FB4934",
+    "green":     "#B8BB26",
+    "yellow":    "#FABD2F",
+    "blue":      "#83A598",
+    "purple":    "#D3869B",
+    "aqua":      "#8EC07C",
+    "gray":      "#A89984",
   },
 
   "GruvboxDark": {
+    "fg":        "#EBDBB2",
     "bg":        "#282828",
     "white":     "#EBDBB2",
     "red":       "#CC241D",
@@ -53,7 +63,7 @@ var themes = map[string]map[string]string {
     "blue":      "#458588",
     "purple":    "#B16286",
     "aqua":      "#689D6A",
-    "gray":      "#A89984"
+    "gray":      "#A89984",
   },
 
 }
