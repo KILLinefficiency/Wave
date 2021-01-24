@@ -67,15 +67,15 @@ var themes = map[string]map[string]string {
   },
 
   "SnazzyLight": {
-    "fg":        "",
-    "bg":        "#FFFFFF",
-    "red":       "",
-    "green":     "",
-    "yellow":    "",
-    "blue":      "",
-    "cyan":      "",
-    "magenta":   "",
-    "gray":      "",
+    "fg":        "#565869",
+    "bg":        "#FAFBFC",
+    "red":       "#FF5C57",
+    "green":     "#2DAE58",
+    "yellow":    "#CF9C00",
+    "blue":      "#09A1ED",
+    "cyan":      "#13BBB7",
+    "magenta":   "#F767BB",
+    "gray":      "#9194A2",
   },
 
   "LaserWave": {
