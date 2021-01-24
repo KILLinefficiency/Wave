@@ -1,6 +1,6 @@
 package main
 
-var pageDefaults = map[string]string {
+var pageProp = map[string]string {
   "pTitle": "Wave Document",
   "pBGcolor": "white",
   "pBGimage": "none",
@@ -9,7 +9,7 @@ var pageDefaults = map[string]string {
   "pBoxStyle": "hidden",
 }
 
-var contentDefaults = map[string]string {
+var contentProp = map[string]string {
   "cTab": "4",
   "cFont": "Arial",
   "cSize": "17",
