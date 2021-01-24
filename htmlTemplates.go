@@ -11,4 +11,5 @@ var (
   cssTemplate string = "style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'"
 
   htmlEnd string = "\t</body>\n</html>"
+
 )
