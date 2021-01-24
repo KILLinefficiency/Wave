@@ -39,4 +39,21 @@ var themes = map[string]map[string]string {
     "blue":      "#66D9EF",
     "purple":    "#AE81FF",
   },
+
+  "GruvboxLight": {
+    "bg":        "",
+  },
+
+  "GruvboxDark": {
+    "bg":        "#282828",
+    "white":     "#EBDBB2",
+    "red":       "#CC241D",
+    "green":     "#98971A",
+    "yellow":    "#D79921",
+    "blue":      "#458588",
+    "purple":    "#B16286",
+    "aqua":      "#689D6A",
+    "gray":      "#A89984"
+  },
+
 }
