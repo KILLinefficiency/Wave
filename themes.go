@@ -78,4 +78,16 @@ var themes = map[string]map[string]string {
     "gray":      "",
   },
 
+  "LaserWave": {
+    "fg":        "#FFFFFF",
+    "bg":        "#27212E",
+    "white":     "#FFFFFF",
+    "blue":      "#40B4C4",
+    "magenta":   "#EB64B9",
+    "violet":    "#B381C5",
+    "aqua":      "#74DFC4",
+    "purple":    "#91889B",
+    "yellow":    "#FFE261",
+  },
+
 }
