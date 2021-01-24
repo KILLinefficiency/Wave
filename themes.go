@@ -66,4 +66,16 @@ var themes = map[string]map[string]string {
     "gray":      "#A89984",
   },
 
+  "SnazzyLight": {
+    "fg":        "",
+    "bg":        "#FFFFFF",
+    "red":       "",
+    "green":     "",
+    "yellow":    "",
+    "blue":      "",
+    "cyan":      "",
+    "magenta":   "",
+    "gray":      "",
+  },
+
 }
