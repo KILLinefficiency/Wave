@@ -99,7 +99,7 @@ func main() {
 
     switch tokens[0] {
       case "$text":
-        htmlBody += fmt.Sprintf("\t\t<p %s>%s</p>\n", cssBody, property)
+        htmlBody += fmt.Sprintf(textTemplate, cssBody, property)
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
@@ -108,7 +108,7 @@ func main() {
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
         fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", tabNumber), -1)
-        htmlBody += fmt.Sprintf("\t\t<p %s>%s</p>\n", cssBody, fileStr)
+        htmlBody += fmt.Sprintf(textTemplate, cssBody, fileStr)
 
       case "$nl":
         if len(tokens) == 1 {
@@ -123,7 +123,7 @@ func main() {
           contentProp["cLink"] = strings.TrimSpace(linkTitle[0])
           contentProp["cLinkTitle"] = strings.TrimSpace(linkTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = '%s' %s>%s</a>\n", contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
+        htmlBody += fmt.Sprintf(linkTemplate, contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
 
       case "$mail":
         mailTitle := strings.Split(property, contentProp["cDelimiter"])
@@ -131,44 +131,43 @@ func main() {
           contentProp["cMailAddress"] = strings.TrimSpace(mailTitle[0])
           contentProp["cMailTitle"] = strings.TrimSpace(mailTitle[1])
         }
-        htmlBody += fmt.Sprintf("\t\t<a href = 'mailto:%s' %s>%s</a>\n", contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
+        htmlBody += fmt.Sprintf(mailTemplate, contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
 
       case "$points":
         listPoints := strings.Split(property, contentProp["cDelimiter"])
         var allPoints string
         for _, point := range listPoints {
-          allPoints += fmt.Sprintf("\t\t\t<li>%s</li>\n", strings.TrimSpace(point))
+          allPoints += fmt.Sprintf(pointsTemplate, strings.TrimSpace(point))
         }
-        var pointsBody string = fmt.Sprintf("\t\t<%s %s>\n%s\t\t</%s>\n", contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
+        var pointsBody string = fmt.Sprintf(pointsBodyTemplate, contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
         htmlBody += pointsBody
 
       case "$table":
         var tableBody string
-        var tableBorder string = "style = 'border: 2px solid black;'"
         tableRows := strings.Split(property, contentProp["cTableDelimiter"])
         for _, rowValues := range tableRows {
           values := strings.Split(rowValues, contentProp["cDelimiter"])
           var rowBody string
           for _, addValues := range values {
-            rowBody += fmt.Sprintf("\t\t\t\t\t<td %s>%s</td>\n", tableBorder, strings.TrimSpace(addValues))
+            rowBody += fmt.Sprintf(tableValuesTemplate, tableBorder, strings.TrimSpace(addValues))
           }
-          tableBody += fmt.Sprintf("\t\t\t\t<tr %s>\n%s\t\t\t\t</tr>\n", tableBorder, rowBody)
+          tableBody += fmt.Sprintf(tableBodyTemplate, tableBorder, rowBody)
         }
-        htmlBody += fmt.Sprintf("\t\t<div %s>\n\t\t\t<table %s>\n%s\t\t\t</table>\n\t\t</div>\n", cssBody, tableBorder, tableBody)
+        htmlBody += fmt.Sprintf(tableCompleteTemplate, cssBody, tableBorder, tableBody)
 
       case "$check":
         checkPoints := strings.Split(property, contentProp["cDelimiter"])
         var checkPointsBody string
         for _, points := range checkPoints {
-          checkPointsBody += fmt.Sprintf("\t\t\t<input type = 'checkbox'>%s<br>\n", strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
+          checkPointsBody += fmt.Sprintf(checkboxTemplate, strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
         }
-        htmlBody += fmt.Sprintf("\t\t<div %s>\n%s\t\t</div>\n", cssBody, checkPointsBody)
+        htmlBody += fmt.Sprintf(checkboxBodyTemplate, cssBody, checkPointsBody)
 
       case "$quote":
-        htmlBody += fmt.Sprintf("\t\t<br><b><i>\"%s\"</b></i><br>\n", property)
+        htmlBody += fmt.Sprintf(quoteTemplate, property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf("\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n", contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"],contentProp["cWidth"], contentProp["cHeight"], property)
+        htmlBody += fmt.Sprintf(imageTemplate, contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"],contentProp["cWidth"], contentProp["cHeight"], property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
