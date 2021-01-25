@@ -4,6 +4,7 @@ var pageProp = map[string]string {
   "pTitle": "Wave Document",
   "pBGcolor": "white",
   "pBGimage": "none",
+  "pColor": "black",
   "pAlign": "left",
   "pBox": "0",
   "pBoxStyle": "hidden",
