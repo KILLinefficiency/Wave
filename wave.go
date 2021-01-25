@@ -32,7 +32,7 @@ func main() {
 
   var contentDefaults = make(map[string]string)
   copyMap(contentProp, contentDefaults)
-  
+
   for _, line := range scriptLines {
     tokens := strings.Split(strings.TrimSpace(line), " ")
     property := strings.Join(tokens[1:], " ")
@@ -42,12 +42,15 @@ func main() {
         pageProp["pTitle"] = property
       case "~bg":
         pageProp["pBGcolor"] = property
-        contentProp["cBGcolor"] = pageProp["pBGcolor"]
+        contentProp["cBGcolor"] = property
       case "~pic":
         pageProp["pBGimage"] = property
+      case "~color":
+        pageProp["pColor"] = property
+        contentProp["cColor"] = property
       case "~align":
         pageProp["pAlign"] = property
-        contentProp["cAlign"] = pageProp["pAlign"]
+        contentProp["cAlign"] = property
       case "~box":
         pageProp["pBox"] = property
       case "~box-style":
@@ -174,7 +177,7 @@ func main() {
   }
 
   var htmlTopBody string = fmt.Sprintf(htmlTopBodyTemplate, pageProp["pTitle"])
-  var htmlCSS string = fmt.Sprintf(htmlCSSTemplate, pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
+  var htmlCSS string = fmt.Sprintf(htmlCSSTemplate, pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pColor"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
   var htmlComplete string = waveMark + htmlTopBody + htmlCSS + htmlBody + htmlEnd
 
   fileName := strings.Split(sourceName, ".")
