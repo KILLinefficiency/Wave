@@ -22,5 +22,7 @@ func setTheme(content string, themeName string) string {
   for colName, colCode := range themes[themeName] {
     content = strings.Replace(content, colName, colCode, -1)
   }
+  pageProp["pBGcolor"] = themes[themeName]["bg"]
+  pageProp["pColor"] = themes[themeName]["fg"]
   return content
 }
