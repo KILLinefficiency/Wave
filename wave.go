@@ -35,7 +35,7 @@ func main() {
 
   for _, line := range scriptLines {
     tokens := strings.Split(strings.TrimSpace(line), " ")
-    property := strings.Join(tokens[1:], " ")
+    var property string = strings.Join(tokens[1:], " ")
 
     switch tokens[0] {
       case "~theme":
