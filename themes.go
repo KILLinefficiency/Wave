@@ -2,7 +2,25 @@ package main
 
 var themes = map[string]map[string]string {
 
+  "Default": {
+    "fg":        "black",
+    "bg":        "white",
+    "white":     "white",
+    "black":     "black",
+    "red":       "red",
+    "green":     "green",
+    "yellow":    "yellow",
+    "orange":    "orange",
+    "blue":      "blue",
+    "magenta":   "magenta",
+    "cyan":      "cyan",
+    "purple":    "purple",
+    "gray":      "gray",
+    "aqua":      "aqua",
+  },
+
   "OneDark": {
+    "fg":        "#ABB2BF",
     "bg":        "#1E1F29",
     "black":     "#282C34",
     "white":     "#ABB2BF",
@@ -16,6 +34,7 @@ var themes = map[string]map[string]string {
   },
 
   "Dracula": {
+    "fg":        "#BFBFBF",
     "bg":        "#282A36",
     "black":     "#000000",
     "white":     "#BFBFBF",
@@ -29,6 +48,7 @@ var themes = map[string]map[string]string {
   },
 
   "Monokai": {
+    "fg":        "#F8F8F2",
     "bg":        "#272822",
     "black":     "#000000",
     "white":     "#F8F8F2",
