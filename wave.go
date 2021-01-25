@@ -43,6 +43,7 @@ func main() {
       case "~title":
         pageProp["pTitle"] = property
       case "~bg":
+        property = setTheme(property, pageProp["pTheme"])
         pageProp["pBGcolor"] = property
         contentProp["cBGcolor"] = property
       case "~pic":
@@ -77,6 +78,7 @@ func main() {
       case "!align":
         contentProp["cAlign"] = property
       case "!bg":
+        property = setTheme(property, pageProp["pTheme"])
         contentProp["cBGcolor"] = property
       case "!points-type":
         if property == "ordered" {
