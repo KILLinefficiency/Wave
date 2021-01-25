@@ -38,6 +38,8 @@ func main() {
     property := strings.Join(tokens[1:], " ")
 
     switch tokens[0] {
+      case "~theme":
+        pageProp["pTheme"] = property
       case "~title":
         pageProp["pTitle"] = property
       case "~bg":
@@ -46,6 +48,7 @@ func main() {
       case "~pic":
         pageProp["pBGimage"] = property
       case "~color":
+        property = setTheme(property, pageProp["pTheme"])
         pageProp["pColor"] = property
         contentProp["cColor"] = property
       case "~align":
@@ -65,6 +68,7 @@ func main() {
       case "!size":
         contentProp["cSize"] = property
       case "!color":
+        property = setTheme(property, pageProp["pTheme"])
         contentProp["cColor"] = property
       case "!box":
         contentProp["cBox"] = property
