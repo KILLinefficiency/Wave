@@ -2,6 +2,7 @@ package main
 
 var pageProp = map[string]string {
   "pTitle": "Wave Document",
+  "pTheme": "Default",
   "pBGcolor": "white",
   "pBGimage": "none",
   "pColor": "black",
