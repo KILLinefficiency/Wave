@@ -110,4 +110,17 @@ var themes = map[string]map[string]string {
     "yellow":    "#FFE261",
   },
 
+  "Nord": {
+    "fg": "#ECEFF4",
+    "bg": "#2E3440",
+    "white": "#ECEFF4",
+    "red": "#BF616A",
+    "green": "#A3BE8C",
+    "yellow": "#EBCB8B",
+    "orange": "#D08770",
+    "blue": "#5E81AC",
+    "cyan": "#88C0D0",
+    "purple": "#B48EAD",
+  },
+
 }
