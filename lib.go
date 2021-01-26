@@ -23,6 +23,5 @@ func setTheme(content string, themeName string) string {
     content = strings.Replace(content, colName, colCode, -1)
   }
   pageProp["pBGcolor"] = themes[themeName]["bg"]
-  pageProp["pColor"] = themes[themeName]["fg"]
   return content
 }
