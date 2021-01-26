@@ -44,14 +44,10 @@ func main() {
         pageProp["pTitle"] = property
       case "~bg":
         property = setTheme(property, pageProp["pTheme"])
-        pageProp["pBGcolor"] = property
-        contentProp["cBGcolor"] = property
       case "~pic":
         pageProp["pBGimage"] = property
       case "~color":
         property = setTheme(property, pageProp["pTheme"])
-        pageProp["pColor"] = property
-        contentProp["cColor"] = property
       case "~align":
         pageProp["pAlign"] = property
         contentProp["cAlign"] = property
