@@ -113,15 +113,31 @@ var themes = map[string]map[string]string {
   "HorizonLight": {
     "bg":        "F9CBBE",
     "black":     "#1A1C23",
-    "white":     "F9CBBE",
+    "white":     "#F9CBBE",
     "red":       "#DA103F",
     "green":     "#07DA8C",
     "yellow":    "#F77D26",
     "orange":    "#DC3318",
     "blue":      "#1D8991",
-    "cyan":      "#!EAEAE",
+    "cyan":      "#1EAEAE",
+    "magenta":   "#E73665",
     "purple":    "#8931B9",
     "brown":     "#AF5427",
+  },
+
+  "HorizonDark": {
+    "bg":        "#1C1E26",
+    "black":     "#1C1E26",
+    "white":     "#F9CBBE",
+    "red":       "#F43E5C",
+    "green":     "#27D796",
+    "yellow":    "#FAB795",
+    "orange":    "#F09383",
+    "blue":      "#25B2BC",
+    "cyan":      "#21BFC2",
+    "magenta":   "#E9436F",
+    "purple":    "#B877DB",
+    "brown":     "#FAB38E",
   },
 
   "Nord": {
