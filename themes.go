@@ -3,7 +3,6 @@ package main
 var themes = map[string]map[string]string {
 
   "Default": {
-    "fg":        "black",
     "bg":        "white",
     "white":     "white",
     "black":     "black",
@@ -20,7 +19,6 @@ var themes = map[string]map[string]string {
   },
 
   "OneDark": {
-    "fg":        "#ABB2BF",
     "bg":        "#1E1F29",
     "black":     "#282C34",
     "white":     "#ABB2BF",
@@ -34,7 +32,6 @@ var themes = map[string]map[string]string {
   },
 
   "Dracula": {
-    "fg":        "#BFBFBF",
     "bg":        "#282A36",
     "black":     "#000000",
     "white":     "#BFBFBF",
@@ -48,7 +45,6 @@ var themes = map[string]map[string]string {
   },
 
   "Monokai": {
-    "fg":        "#F8F8F2",
     "bg":        "#272822",
     "black":     "#000000",
     "white":     "#F8F8F2",
@@ -61,7 +57,6 @@ var themes = map[string]map[string]string {
   },
 
   "GruvboxLight": {
-    "fg":        "#3C3836",
     "bg":        "#FBF1C7",
     "white":     "#EBDBB2",
     "red":       "#FB4934",
@@ -74,7 +69,6 @@ var themes = map[string]map[string]string {
   },
 
   "GruvboxDark": {
-    "fg":        "#EBDBB2",
     "bg":        "#282828",
     "white":     "#EBDBB2",
     "red":       "#CC241D",
@@ -87,7 +81,6 @@ var themes = map[string]map[string]string {
   },
 
   "SnazzyLight": {
-    "fg":        "#565869",
     "bg":        "#FAFBFC",
     "red":       "#FF5C57",
     "green":     "#2DAE58",
@@ -99,7 +92,6 @@ var themes = map[string]map[string]string {
   },
 
   "LaserWave": {
-    "fg":        "#FFFFFF",
     "bg":        "#27212E",
     "white":     "#FFFFFF",
     "blue":      "#40B4C4",
@@ -141,7 +133,6 @@ var themes = map[string]map[string]string {
   },
 
   "Nord": {
-    "fg":        "#ECEFF4",
     "bg":        "#2E3440",
     "white":     "#ECEFF4",
     "red":       "#BF616A",
