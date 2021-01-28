@@ -97,11 +97,11 @@ func main() {
         contentProp = copyMap(contentDefaults)
     }
 
-    cssBody = fmt.Sprintf(cssTemplate, contentProp["cFont"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["cSize"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cPointsStyle"])
+    cssBody = fmt.Sprintf(templates["css"], contentProp["cFont"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["cSize"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cPointsStyle"])
 
     switch tokens[0] {
       case "$text":
-        htmlBody += fmt.Sprintf(textTemplate, cssBody, property)
+        htmlBody += fmt.Sprintf(templates["text"], cssBody, property)
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
@@ -110,7 +110,7 @@ func main() {
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
         fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", tabNumber), -1)
-        htmlBody += fmt.Sprintf(textTemplate, cssBody, fileStr)
+        htmlBody += fmt.Sprintf(templates["text"], cssBody, fileStr)
 
       case "$nl":
         if len(tokens) == 1 {
@@ -125,7 +125,7 @@ func main() {
           contentProp["cLink"] = strings.TrimSpace(linkTitle[0])
           contentProp["cLinkTitle"] = strings.TrimSpace(linkTitle[1])
         }
-        htmlBody += fmt.Sprintf(linkTemplate, contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
+        htmlBody += fmt.Sprintf(templates["link"], contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
 
       case "$mail":
         mailTitle := strings.Split(property, contentProp["cDelimiter"])
@@ -133,15 +133,15 @@ func main() {
           contentProp["cMailAddress"] = strings.TrimSpace(mailTitle[0])
           contentProp["cMailTitle"] = strings.TrimSpace(mailTitle[1])
         }
-        htmlBody += fmt.Sprintf(mailTemplate, contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
+        htmlBody += fmt.Sprintf(templates["mail"], contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
 
       case "$points":
         listPoints := strings.Split(property, contentProp["cDelimiter"])
         var allPoints string
         for _, point := range listPoints {
-          allPoints += fmt.Sprintf(pointsTemplate, strings.TrimSpace(point))
+          allPoints += fmt.Sprintf(templates["points"], strings.TrimSpace(point))
         }
-        var pointsBody string = fmt.Sprintf(pointsBodyTemplate, contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
+        var pointsBody string = fmt.Sprintf(templates["pointsBody"], contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
         htmlBody += pointsBody
 
       case "$table":
@@ -151,25 +151,25 @@ func main() {
           values := strings.Split(rowValues, contentProp["cDelimiter"])
           var rowBody string
           for _, addValues := range values {
-            rowBody += fmt.Sprintf(tableValuesTemplate, tableBorder, strings.TrimSpace(addValues))
+            rowBody += fmt.Sprintf(templates["tableValues"], templates["tableBorder"], strings.TrimSpace(addValues))
           }
-          tableBody += fmt.Sprintf(tableBodyTemplate, tableBorder, rowBody)
+          tableBody += fmt.Sprintf(templates["tableBody"], templates["tableBorder"], rowBody)
         }
-        htmlBody += fmt.Sprintf(tableCompleteTemplate, cssBody, tableBorder, tableBody)
+        htmlBody += fmt.Sprintf(templates["tableComplete"], cssBody, templates["tableBorder"], tableBody)
 
       case "$check":
         checkPoints := strings.Split(property, contentProp["cDelimiter"])
         var checkPointsBody string
         for _, points := range checkPoints {
-          checkPointsBody += fmt.Sprintf(checkboxTemplate, strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
+          checkPointsBody += fmt.Sprintf(templates["checkbox"], strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
         }
-        htmlBody += fmt.Sprintf(checkboxBodyTemplate, cssBody, checkPointsBody)
+        htmlBody += fmt.Sprintf(templates["checkboxBody"], cssBody, checkPointsBody)
 
       case "$quote":
-        htmlBody += fmt.Sprintf(quoteTemplate, property)
+        htmlBody += fmt.Sprintf(templates["quote"], property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf(imageTemplate, contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"],contentProp["cWidth"], contentProp["cHeight"], property)
+        htmlBody += fmt.Sprintf(templates["image"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"],contentProp["cWidth"], contentProp["cHeight"], property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
@@ -177,9 +177,9 @@ func main() {
 
   }
 
-  var htmlTopBody string = fmt.Sprintf(htmlTopBodyTemplate, pageProp["pTitle"])
-  var htmlCSS string = fmt.Sprintf(htmlCSSTemplate, pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pColor"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
-  var htmlComplete string = waveMark + htmlTopBody + htmlCSS + htmlBody + htmlEnd
+  var htmlTopBody string = fmt.Sprintf(templates["htmlTopBody"], pageProp["pTitle"])
+  var htmlCSS string = fmt.Sprintf(templates["htmlCSS"], pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pColor"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
+  var htmlComplete string = templates["waveMark"] + htmlTopBody + htmlCSS + htmlBody + templates["htmlEnd"]
 
   fileName := strings.Split(sourceName, ".")
   if len(fileName) == 1 {
