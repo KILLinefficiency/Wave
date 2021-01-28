@@ -4,10 +4,12 @@ import (
   "strings"
 )
 
-func copyMap(mapOrignal map[string]string, mapCopy map[string]string) {
+func copyMap(mapOrignal map[string]string) map[string]string {
+  var mapCopy = make(map[string]string)
   for key, value := range mapOrignal {
     mapCopy[key] = value
   }
+  return mapCopy
 }
 
 func strMultiply(strText string, times int) string {
