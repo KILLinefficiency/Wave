@@ -31,7 +31,7 @@ func main() {
   scriptLines := strings.Split(strings.TrimSpace(script), "\n")
 
   var contentDefaults = make(map[string]string)
-  copyMap(contentProp, contentDefaults)
+  contentDefaults = copyMap(contentProp)
 
   for _, line := range scriptLines {
     tokens := strings.Split(strings.TrimSpace(line), " ")
@@ -94,7 +94,7 @@ func main() {
       case "!colsep":
         contentProp["cTableDelimiter"] = property
       case "!default":
-        copyMap(contentDefaults, contentProp)
+        contentProp = copyMap(contentDefaults)
     }
 
     cssBody = fmt.Sprintf(cssTemplate, contentProp["cFont"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["cSize"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cPointsStyle"])
