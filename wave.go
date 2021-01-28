@@ -8,12 +8,13 @@ import (
   "io/ioutil"
 )
 
-var (
-  htmlBody string
-  cssBody string
-)
-
 func main() {
+
+  var (
+    htmlBody string
+    cssBody string
+  )
+
   if len(os.Args) == 1 {
     fmt.Printf("No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n")
     os.Exit(1)
