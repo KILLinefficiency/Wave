@@ -1,8 +1,8 @@
 ~theme HorizonDark
 ~title Guide to Wave Markup Language
-~align center
 ~box 50
 
+!align center
 !size 50
 !color green
 $text Wave
@@ -12,3 +12,36 @@ $nl 3
 !size 25
 !color red
 $text A markup language that transpiles it's syntax to HTML with inline CSS.
+
+$nl 5
+
+!align left
+!size 20
+!color white
+$text Wave is a minimalist markup language that transpiles to HTML + CSS. The transpiled document is viewed using a web browser.
+
+$nl 3
+
+!color orange
+$text 1. Getting Wave
+
+$nl
+
+!color white
+$text Wave is available for free on Github. Wave is available in source code form only. 
+
+$nl
+
+$text Wave on Github:
+$link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILLinefficiency/Wave
+
+$nl 3
+$text Clone Wave onto your system:
+
+$nl
+!font Consolas
+!color blue
+$text &nbsp;&nbsp;&nbsp;&nbsp; $ git clone https://www.github.com/KILLinefficiency/Wave.git
+
+!font Arial
+!color white
