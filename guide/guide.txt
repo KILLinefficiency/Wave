@@ -1,0 +1,14 @@
+~theme HorizonDark
+~title Guide to Wave Markup Language
+~align center
+~box 50
+
+!size 50
+!color green
+$text Wave
+
+$nl 3
+
+!size 25
+!color red
+$text A markup language that transpiles it's syntax to HTML with inline CSS.
