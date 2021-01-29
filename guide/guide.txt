@@ -1,6 +1,6 @@
 ~theme HorizonDark
 ~title Guide to Wave Markup Language
-~box 50
+~box 100
 
 !align center
 !size 50
@@ -22,11 +22,13 @@ $text Wave is a minimalist markup language that transpiles to HTML + CSS. The tr
 
 $nl 3
 
-!color orange
+!size 25
+!color green
 $text 1. Getting Wave
 
 $nl
 
+!size 20
 !color white
 $text Wave is available for free on Github. Wave is available in source code form only. 
 
@@ -34,6 +36,10 @@ $nl
 
 $text Wave on Github:
 $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILLinefficiency/Wave
+
+$nl 3
+$text Before compiling Wave, make sure that you have the following things installed:
+$points Go Programming Language ; GNU Make ; A Web Browser
 
 $nl 3
 $text Clone Wave onto your system:
@@ -45,3 +51,17 @@ $text &nbsp;&nbsp;&nbsp;&nbsp; $ git clone https://www.github.com/KILLinefficien
 
 !font Arial
 !color white
+$nl 2
+
+$text Build Wave:
+$nl
+
+!font Consolas
+!color blue
+$text &nbsp;&nbsp;&nbsp;&nbsp; $ cd Wave
+$text &nbsp;&nbsp;&nbsp;&nbsp; $ make
+
+!font Arial
+!color white
+$nl 2
+$text An executable for Wave is produced. You can use the executable as it is or add it to your PATH environment variable.
