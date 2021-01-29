@@ -12,7 +12,7 @@ var templates = map[string]string {
 
   "text": "\t\t<p %s>%s</p>\n",
 
-  "link": "\t\t<a href = '%s' %s>%s</a>\n",
+  "link": "\t\t<a href = '%s' target = '_blank' %s>%s</a>\n",
 
   "mail": "\t\t<a href = 'mailto:%s' %s>%s</a>\n",
 
