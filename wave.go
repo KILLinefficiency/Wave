@@ -18,14 +18,7 @@ func main() {
   var cssBody string
   var sourceName string = os.Args[1]
 
-  byteStream, err := ioutil.ReadFile(sourceName)
-  if err != nil {
-    fmt.Printf("Invalid file address: %s\n", sourceName)
-    os.Exit(2)
-  }
-
-  var script string = string(byteStream)
-  scriptLines := strings.Split(strings.TrimSpace(script), "\n")
+  scriptLines := splitFileText(sourceName)
 
   var contentDefaults = make(map[string]string)
   contentDefaults = copyMap(contentProp)
@@ -173,7 +166,7 @@ func main() {
         htmlBody += fmt.Sprintf(templates["quote"], property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf(templates["image"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"],contentProp["cWidth"], contentProp["cHeight"], property)
+        htmlBody += fmt.Sprintf(templates["image"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cWidth"], contentProp["cHeight"], property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
