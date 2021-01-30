@@ -34,6 +34,10 @@ func main() {
     tokens := strings.Split(strings.TrimSpace(line), " ")
     var property string = strings.Join(tokens[1:], " ")
 
+    for name, value := range variables {
+      property = strings.Replace(property, "%" + name, value, -1)
+    }
+
     switch tokens[0] {
       case "~theme":
         pageProp["pTheme"] = property
@@ -52,6 +56,9 @@ func main() {
         pageProp["pBox"] = property
       case "~box-style":
         pageProp["pBoxStyle"] = property
+      case "~set":
+        var varValue string = strings.Join(tokens[2:], " ")
+        variables[tokens[1]] = varValue
     }
 
     switch tokens[0] {
