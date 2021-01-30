@@ -1,7 +1,10 @@
 package main
 
 import (
+  "os"
+  "fmt"
   "strings"
+  "io/ioutil"
 )
 
 func copyMap(mapOrignal map[string]string) map[string]string {
@@ -32,11 +35,23 @@ func makeHTML(file string) string {
   fileName := strings.Split(file, ".")
 
   if len(fileName) == 1 {
-    fileName = append(fileName, ".html")
-  } else {
-    fileName[len(fileName) - 1] = ".html"
+    var htmlName string = file + ".html"
+    return htmlName
   }
-
+  
+  fileName[len(fileName) - 1] = ".html"
   var htmlName string = strings.Join(fileName, "")
   return htmlName
+}
+
+func splitFileText(file string) []string {
+  byteStream, err := ioutil.ReadFile(file)
+  if err != nil {
+    fmt.Printf("Invalid file address: %s\n", file)
+    os.Exit(2)
+  }
+
+  var script string = string(byteStream)
+  lines := strings.Split(strings.TrimSpace(script), "\n")
+  return lines
 }
