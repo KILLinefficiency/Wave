@@ -27,3 +27,16 @@ func setTheme(content string, themeName string) string {
   pageProp["pBGcolor"] = themes[themeName]["bg"]
   return content
 }
+
+func makeHTML(file string) string {
+  fileName := strings.Split(file, ".")
+
+  if len(fileName) == 1 {
+    fileName = append(fileName, ".html")
+  } else {
+    fileName[len(fileName) - 1] = ".html"
+  }
+
+  var htmlName string = strings.Join(fileName, "")
+  return htmlName
+}
