@@ -5,5 +5,6 @@ import (
 )
 
 var variables = map[string]string {
-  "file_name": os.Args[1],
+  "source_name": os.Args[1],
+  "file_name": makeHTML(os.Args[1]),
 }
