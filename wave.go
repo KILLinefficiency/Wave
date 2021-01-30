@@ -185,14 +185,7 @@ func main() {
   var htmlCSS string = fmt.Sprintf(templates["htmlCSS"], pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pColor"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
   var htmlComplete string = templates["waveMark"] + htmlTopBody + htmlCSS + htmlBody + templates["htmlEnd"]
 
-  fileName := strings.Split(sourceName, ".")
-  if len(fileName) == 1 {
-    fileName = append(fileName, ".html")
-  } else {
-    fileName[len(fileName) - 1] = ".html"
-  }
-
-  htmlFileName := strings.Join(fileName, "")
+  var htmlFileName string = makeHTML(sourceName)
   htmlFile, err := os.Create(htmlFileName)
   if err != nil {
     fmt.Printf("Unable to create file: %s\n\nSource Code for the Document:\n\n%s\n", htmlFileName, htmlComplete)
