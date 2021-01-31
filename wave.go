@@ -31,27 +31,11 @@ func main() {
       property = strings.Replace(property, "%" + name, value, -1)
     }
 
-    switch tokens[0] {
-      case "~theme":
-        pageProp["pTheme"] = property
-      case "~title":
-        pageProp["pTitle"] = property
-      case "~bg":
-        property = setTheme(property, pageProp["pTheme"])
-      case "~pic":
-        pageProp["pBGimage"] = property
-      case "~color":
-        property = setTheme(property, pageProp["pTheme"])
-      case "~align":
-        pageProp["pAlign"] = property
-        contentProp["cAlign"] = property
-      case "~box":
-        pageProp["pBox"] = property
-      case "~box-style":
-        pageProp["pBoxStyle"] = property
-      case "~set":
-        var varValue string = strings.Join(tokens[2:], " ")
-        variables[tokens[1]] = varValue
+    if strings.HasPrefix(tokens[0], "~") && tokens[0] != "~set" {
+      pageProp[tokens[0]] = property
+    } else if tokens[0] == "~set" {
+      var varValue string = strings.Join(tokens[2:], " ")
+      variables[tokens[1]] = varValue
     }
 
     switch tokens[0] {
@@ -62,7 +46,7 @@ func main() {
       case "!size":
         contentProp["cSize"] = property
       case "!color":
-        property = setTheme(property, pageProp["pTheme"])
+        property = setTheme(property, pageProp["~theme"])
         contentProp["cColor"] = property
       case "!box":
         contentProp["cBox"] = property
@@ -71,7 +55,7 @@ func main() {
       case "!align":
         contentProp["cAlign"] = property
       case "!bg":
-        property = setTheme(property, pageProp["pTheme"])
+        property = setTheme(property, pageProp["~theme"])
         contentProp["cBGcolor"] = property
       case "!points-type":
         if property == "ordered" {
@@ -174,8 +158,16 @@ func main() {
 
   }
 
-  var htmlTopBody string = fmt.Sprintf(templates["htmlTopBody"], pageProp["pTitle"])
-  var htmlCSS string = fmt.Sprintf(templates["htmlCSS"], pageProp["pBGcolor"], pageProp["pBGimage"], pageProp["pColor"], pageProp["pAlign"], pageProp["pBox"], pageProp["pBoxStyle"])
+  var htmlTopBody string = fmt.Sprintf(templates["htmlTopBody"], pageProp["~title"])
+
+  if pageProp["~theme"] != "" {
+    pageProp["~bg"] = themes[pageProp["~theme"]]["bg"]
+  } else {
+    pageProp["theme"] = "Default"
+  }
+
+  var htmlCSS string = fmt.Sprintf(templates["htmlCSS"], pageProp["~bg"], pageProp["~img"], pageProp["~box"], pageProp["~box-style"])
+  htmlCSS = setTheme(htmlCSS, pageProp["~theme"])
   var htmlComplete string = templates["waveMark"] + htmlTopBody + htmlCSS + htmlBody + templates["htmlEnd"]
 
   var htmlFileName string = makeHTML(sourceName)
