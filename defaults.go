@@ -1,14 +1,12 @@
 package main
 
 var pageProp = map[string]string {
-  "pTitle":        "Wave Document",
-  "pTheme":        "Default",
-  "pBGcolor":      "white",
-  "pBGimage":      "none",
-  "pColor":        "black",
-  "pAlign":        "left",
-  "pBox":          "0",
-  "pBoxStyle":     "hidden",
+  "~title":         "Wave Document",
+  "~theme":         "",
+  "~bg":            "white",
+  "~img":           "none",
+  "~box":           "0",
+  "~box-style":     "hidden",
 }
 
 var contentProp = map[string]string {
