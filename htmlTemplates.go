@@ -6,7 +6,7 @@ var templates = map[string]string {
 
   "htmlTopBody": "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>\n",
 
-  "htmlCSS": "\t<body style = 'background-color: %s; background-image: %s; color: %s; text-align: %s; margin: %spx; border-style: %s;'>\n",
+  "htmlCSS": "\t<body style = 'background-color: %s; background-image: %s; margin: %spx; border-style: %s;'>\n",
 
   "css": "style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'",
 
