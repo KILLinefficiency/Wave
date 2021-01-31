@@ -38,7 +38,7 @@ func makeHTML(file string) string {
     var htmlName string = file + ".html"
     return htmlName
   }
-  
+
   fileName[len(fileName) - 1] = ".html"
   var htmlName string = strings.Join(fileName, "")
   return htmlName
