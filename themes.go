@@ -4,6 +4,7 @@ var themes = map[string]map[string]string {
 
   "Default": {
     "bg":        "white",
+    "fg":        "black",
     "white":     "white",
     "black":     "black",
     "red":       "red",
@@ -20,6 +21,7 @@ var themes = map[string]map[string]string {
 
   "OneDark": {
     "bg":        "#1E1F29",
+    "fg":        "#ABB2BF",
     "black":     "#282C34",
     "white":     "#ABB2BF",
     "red":       "#E06C75",
@@ -33,6 +35,7 @@ var themes = map[string]map[string]string {
 
   "Dracula": {
     "bg":        "#282A36",
+    "fg":        "#BFBFBF",
     "black":     "#000000",
     "white":     "#BFBFBF",
     "red":       "#FF5555",
@@ -46,6 +49,7 @@ var themes = map[string]map[string]string {
 
   "Monokai": {
     "bg":        "#272822",
+    "fg":        "#F8F8F2",
     "black":     "#000000",
     "white":     "#F8F8F2",
     "red":       "#F92672",
@@ -58,6 +62,7 @@ var themes = map[string]map[string]string {
 
   "GruvboxLight": {
     "bg":        "#FBF1C7",
+    "fg":        "#A89984",
     "white":     "#EBDBB2",
     "red":       "#FB4934",
     "green":     "#B8BB26",
@@ -70,6 +75,7 @@ var themes = map[string]map[string]string {
 
   "GruvboxDark": {
     "bg":        "#282828",
+    "fg":        "#EBDBB2",
     "white":     "#EBDBB2",
     "red":       "#CC241D",
     "green":     "#98971A",
@@ -82,6 +88,7 @@ var themes = map[string]map[string]string {
 
   "SnazzyLight": {
     "bg":        "#FAFBFC",
+    "fg":        "#9194A2",
     "red":       "#FF5C57",
     "green":     "#2DAE58",
     "yellow":    "#CF9C00",
@@ -93,6 +100,7 @@ var themes = map[string]map[string]string {
 
   "LaserWave": {
     "bg":        "#27212E",
+    "fg":        "#FFFFFF",
     "white":     "#FFFFFF",
     "blue":      "#40B4C4",
     "magenta":   "#EB64B9",
@@ -104,6 +112,7 @@ var themes = map[string]map[string]string {
 
   "HorizonLight": {
     "bg":        "F9CBBE",
+    "fg":        "#1A1C23",
     "black":     "#1A1C23",
     "white":     "#F9CBBE",
     "red":       "#DA103F",
@@ -119,6 +128,7 @@ var themes = map[string]map[string]string {
 
   "HorizonDark": {
     "bg":        "#1C1E26",
+    "fg":        "#F9CBBE",
     "black":     "#1C1E26",
     "white":     "#F9CBBE",
     "red":       "#F43E5C",
@@ -134,6 +144,7 @@ var themes = map[string]map[string]string {
 
   "Nord": {
     "bg":        "#2E3440",
+    "fg":        "#ECEFF4",
     "white":     "#ECEFF4",
     "red":       "#BF616A",
     "green":     "#A3BE8C",
