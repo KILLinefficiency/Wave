@@ -38,6 +38,15 @@ func main() {
       variables[tokens[1]] = varValue
     }
 
+    if pageProp["~theme"] != "" {
+      pageProp["~bg"] = themes[pageProp["~theme"]]["bg"]
+      if contentProp["cColor"] == "black" {
+        contentProp["cColor"] = themes[pageProp["~theme"]]["fg"]
+      }
+    } else {
+      pageProp["theme"] = "Default"
+    }
+
     switch tokens[0] {
       case "!tab":
         contentProp["cTab"] = property
@@ -159,12 +168,6 @@ func main() {
   }
 
   var htmlTopBody string = fmt.Sprintf(templates["htmlTopBody"], pageProp["~title"])
-
-  if pageProp["~theme"] != "" {
-    pageProp["~bg"] = themes[pageProp["~theme"]]["bg"]
-  } else {
-    pageProp["theme"] = "Default"
-  }
 
   var htmlCSS string = fmt.Sprintf(templates["htmlCSS"], pageProp["~bg"], pageProp["~img"], pageProp["~box"], pageProp["~box-style"])
   htmlCSS = setTheme(htmlCSS, pageProp["~theme"])
