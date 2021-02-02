@@ -39,3 +39,8 @@ var templates = map[string]string {
   "htmlEnd": "\t</body>\n</html>",
 
 }
+
+var messageTemplates = map[string]string {
+  "help": "No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n",
+  "fileNotFoundError": "Unable to create file: %s\n\nSource Code for the Document:\n\n%s\n",
+}
