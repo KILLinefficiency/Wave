@@ -10,7 +10,7 @@ import (
 
 func main() {
   if len(os.Args) == 1 {
-    fmt.Printf("No Wave Script passed.\nPass in a Wave Script as a command-line argument.\nLike:\n\twave <scriptName>\n")
+    fmt.Printf(messageTemplates["help"])
     os.Exit(1)
   }
 
@@ -101,7 +101,7 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t%s\n", strMultiply("<br>", times))
 
       case "$link":
-        linkTitle := strings.Split(property, contentProp["cDelimiter"])
+        linkTitle := strings.Split(property, contentProp["!sep"])
         if len(linkTitle) > 1 {
           contentProp["cLink"] = strings.TrimSpace(linkTitle[0])
           contentProp["cLinkTitle"] = strings.TrimSpace(linkTitle[1])
@@ -109,7 +109,7 @@ func main() {
         htmlBody += fmt.Sprintf(templates["link"], contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
 
       case "$mail":
-        mailTitle := strings.Split(property, contentProp["cDelimiter"])
+        mailTitle := strings.Split(property, contentProp["!sep"])
         if len(mailTitle) > 1 {
           contentProp["cMailAddress"] = strings.TrimSpace(mailTitle[0])
           contentProp["cMailTitle"] = strings.TrimSpace(mailTitle[1])
@@ -164,12 +164,5 @@ func main() {
   htmlCSS = setTheme(htmlCSS, pageProp["~theme"])
   var htmlComplete string = templates["waveMark"] + htmlTopBody + htmlCSS + htmlBody + templates["htmlEnd"]
 
-  var htmlFileName string = makeHTML(sourceName)
-  htmlFile, err := os.Create(htmlFileName)
-  if err != nil {
-    fmt.Printf("Unable to create file: %s\n\nSource Code for the Document:\n\n%s\n", htmlFileName, htmlComplete)
-    os.Exit(3)
-  }
-  htmlFile.WriteString(htmlComplete)
-  htmlFile.Close()
+  makeHTMLfile(sourceName, htmlComplete)
 }
