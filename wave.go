@@ -48,24 +48,10 @@ func main() {
     }
 
     switch tokens[0] {
-      case "!tab":
-        contentProp["cTab"] = property
-      case "!font":
-        contentProp["cFont"] = property
-      case "!size":
-        contentProp["cSize"] = property
-      case "!color":
-        property = setTheme(property, pageProp["~theme"])
-        contentProp["cColor"] = property
-      case "!box":
-        contentProp["cBox"] = property
-      case "!box-style":
-        contentProp["cBoxStyle"] = property
-      case "!align":
-        contentProp["cAlign"] = property
       case "!bg":
         property = setTheme(property, pageProp["~theme"])
         contentProp["cBGcolor"] = property
+
       case "!points-type":
         if property == "ordered" {
           contentProp["cPointsType"] = "ol"
@@ -73,21 +59,26 @@ func main() {
         if property == "unordered" {
           contentProp["cPointsType"] = "ul"
         }
-      case "!points-style":
-        contentProp["cPointsStyle"] = property
+
       case "!dim":
         widthHeight := strings.Split(property, "x")
         contentProp["cWidth"] = strings.TrimSpace(widthHeight[0])
         contentProp["cHeight"] = strings.TrimSpace(widthHeight[1])
-      case "!sep":
-        contentProp["cDelimiter"] = property
-      case "!colsep":
-        contentProp["cTableDelimiter"] = property
+
       case "!default":
         contentProp = copyMap(contentDefaults)
+
+      case "!color":
+        property = setTheme(property, pageProp["~theme"])
+        contentProp["cColor"] = property
+
+      default:
+        if strings.HasPrefix(tokens[0], "!") {
+            contentProp[tokens[0]] = property
+        }
     }
 
-    cssBody = fmt.Sprintf(templates["css"], contentProp["cFont"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["cSize"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cPointsStyle"])
+    cssBody = fmt.Sprintf(templates["css"], contentProp["!font"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["!size"], contentProp["!align"], contentProp["!box"], contentProp["!box-style"], contentProp["!points-style"])
 
     switch tokens[0] {
       case "$text":
@@ -95,7 +86,7 @@ func main() {
 
       case "$file":
         textFile, _ := ioutil.ReadFile(property)
-        tabNumber, _ := strconv.Atoi(contentProp["cTab"])
+        tabNumber, _ := strconv.Atoi(contentProp["!tab"])
         var fileStr string = string(textFile)
         fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
         fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
@@ -126,7 +117,7 @@ func main() {
         htmlBody += fmt.Sprintf(templates["mail"], contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
 
       case "$points":
-        listPoints := strings.Split(property, contentProp["cDelimiter"])
+        listPoints := strings.Split(property, contentProp["!sep"])
         var allPoints string
         for _, point := range listPoints {
           allPoints += fmt.Sprintf(templates["points"], strings.TrimSpace(point))
@@ -136,9 +127,9 @@ func main() {
 
       case "$table":
         var tableBody string
-        tableRows := strings.Split(property, contentProp["cTableDelimiter"])
+        tableRows := strings.Split(property, contentProp["!colsep"])
         for _, rowValues := range tableRows {
-          values := strings.Split(rowValues, contentProp["cDelimiter"])
+          values := strings.Split(rowValues, contentProp["!sep"])
           var rowBody string
           for _, addValues := range values {
             rowBody += fmt.Sprintf(templates["tableValues"], templates["tableBorder"], strings.TrimSpace(addValues))
@@ -148,7 +139,7 @@ func main() {
         htmlBody += fmt.Sprintf(templates["tableComplete"], cssBody, templates["tableBorder"], tableBody)
 
       case "$check":
-        checkPoints := strings.Split(property, contentProp["cDelimiter"])
+        checkPoints := strings.Split(property, contentProp["!sep"])
         var checkPointsBody string
         for _, points := range checkPoints {
           checkPointsBody += fmt.Sprintf(templates["checkbox"], strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
@@ -159,7 +150,7 @@ func main() {
         htmlBody += fmt.Sprintf(templates["quote"], property)
 
       case "$pic":
-        htmlBody += fmt.Sprintf(templates["image"], contentProp["cAlign"], contentProp["cBox"], contentProp["cBoxStyle"], contentProp["cWidth"], contentProp["cHeight"], property)
+        htmlBody += fmt.Sprintf(templates["image"], contentProp["!align"], contentProp["!box"], contentProp["!box-style"], contentProp["cWidth"], contentProp["cHeight"], property)
 
       case "$html":
         htmlBody += fmt.Sprintf("\t\t%s\n", property)
