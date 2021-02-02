@@ -1,10 +1,6 @@
 package main
 
-import (
-  "os"
-)
-
 var variables = map[string]string {
-  "source_name": os.Args[1],
-  "file_name": makeHTML(os.Args[1]),
+  "source_name": getSourceName(),
+  "file_name": makeHTML(getSourceName()),
 }
