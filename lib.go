@@ -31,6 +31,13 @@ func setTheme(content string, themeName string) string {
   return content
 }
 
+func getSourceName() string {
+  if len(os.Args) == 1 {
+    return ""
+  }
+  return os.Args[1]
+}
+
 func makeHTML(file string) string {
   fileName := strings.Split(file, ".")
 
@@ -54,4 +61,15 @@ func splitFileText(file string) []string {
   var script string = string(byteStream)
   lines := strings.Split(strings.TrimSpace(script), "\n")
   return lines
+}
+
+func makeHTMLfile(sourceFile string, htmlContent string) {
+  var htmlFileName string = makeHTML(sourceFile)
+  htmlFile, err := os.Create(htmlFileName)
+  if err != nil {
+    fmt.Printf(messageTemplates["fileNotFoundError"], htmlFileName, htmlContent)
+    os.Exit(3)
+  }
+  htmlFile.WriteString(htmlContent)
+  htmlFile.Close()
 }
