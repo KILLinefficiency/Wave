@@ -5,7 +5,6 @@ import (
   "fmt"
   "strings"
   "strconv"
-  "io/ioutil"
 )
 
 func main() {
@@ -43,8 +42,6 @@ func main() {
       if contentProp["cColor"] == "black" {
         contentProp["cColor"] = themes[pageProp["~theme"]]["fg"]
       }
-    } else {
-      pageProp["theme"] = "Default"
     }
 
     switch tokens[0] {
@@ -85,12 +82,8 @@ func main() {
         htmlBody += fmt.Sprintf(templates["text"], cssBody, property)
 
       case "$file":
-        textFile, _ := ioutil.ReadFile(property)
         tabNumber, _ := strconv.Atoi(contentProp["!tab"])
-        var fileStr string = string(textFile)
-        fileStr = strings.Replace(fileStr, "\n", "<br>", -1)
-        fileStr = strings.Replace(fileStr, " ", "&nbsp;", -1)
-        fileStr = strings.Replace(fileStr, "\t", strMultiply("&nbsp;", tabNumber), -1)
+        var fileStr string = readFileForHTML(property, tabNumber)
         htmlBody += fmt.Sprintf(templates["text"], cssBody, fileStr)
 
       case "$nl":
