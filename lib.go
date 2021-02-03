@@ -73,3 +73,12 @@ func makeHTMLfile(sourceFile string, htmlContent string) {
   htmlFile.WriteString(htmlContent)
   htmlFile.Close()
 }
+
+func readFileForHTML(file string, tabNo int) string {
+  textFile, _ := ioutil.ReadFile(file)
+  var fileContent string = string(textFile)
+  fileContent = strings.Replace(fileContent, "\n", "<br>", -1)
+  fileContent = strings.Replace(fileContent, " ", "&nbsp;", -1)
+  fileContent = strings.Replace(fileContent, "\t", strMultiply("&nbsp;", tabNo), -1)
+  return fileContent
+}
