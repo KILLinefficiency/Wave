@@ -44,36 +44,7 @@ func main() {
       }
     }
 
-    switch tokens[0] {
-      case "!bg":
-        property = setTheme(property, pageProp["~theme"])
-        contentProp["cBGcolor"] = property
-
-      case "!points-type":
-        if property == "ordered" {
-          contentProp["cPointsType"] = "ol"
-        }
-        if property == "unordered" {
-          contentProp["cPointsType"] = "ul"
-        }
-
-      case "!dim":
-        widthHeight := strings.Split(property, "x")
-        contentProp["cWidth"] = strings.TrimSpace(widthHeight[0])
-        contentProp["cHeight"] = strings.TrimSpace(widthHeight[1])
-
-      case "!default":
-        contentProp = copyMap(contentDefaults)
-
-      case "!color":
-        property = setTheme(property, pageProp["~theme"])
-        contentProp["cColor"] = property
-
-      default:
-        if strings.HasPrefix(tokens[0], "!") {
-            contentProp[tokens[0]] = property
-        }
-    }
+    applyProperties(tokens[0], property, &contentDefaults)
 
     cssBody = fmt.Sprintf(templates["css"], contentProp["!font"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["!size"], contentProp["!align"], contentProp["!box"], contentProp["!box-style"], contentProp["!points-style"])
 
@@ -94,49 +65,23 @@ func main() {
         htmlBody += fmt.Sprintf("\t\t%s\n", strMultiply("<br>", times))
 
       case "$link":
-        linkTitle := strings.Split(property, contentProp["!sep"])
-        if len(linkTitle) > 1 {
-          contentProp["cLink"] = strings.TrimSpace(linkTitle[0])
-          contentProp["cLinkTitle"] = strings.TrimSpace(linkTitle[1])
-        }
+        genLink(property)
         htmlBody += fmt.Sprintf(templates["link"], contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
 
       case "$mail":
-        mailTitle := strings.Split(property, contentProp["!sep"])
-        if len(mailTitle) > 1 {
-          contentProp["cMailAddress"] = strings.TrimSpace(mailTitle[0])
-          contentProp["cMailTitle"] = strings.TrimSpace(mailTitle[1])
-        }
+        genMail(property)
         htmlBody += fmt.Sprintf(templates["mail"], contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
 
       case "$points":
-        listPoints := strings.Split(property, contentProp["!sep"])
-        var allPoints string
-        for _, point := range listPoints {
-          allPoints += fmt.Sprintf(templates["points"], strings.TrimSpace(point))
-        }
-        var pointsBody string = fmt.Sprintf(templates["pointsBody"], contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
-        htmlBody += pointsBody
+        var allPoints string = genPoints(property)
+        htmlBody += fmt.Sprintf(templates["pointsBody"], contentProp["cPointsType"], cssBody, allPoints, contentProp["cPointsType"])
 
       case "$table":
-        var tableBody string
-        tableRows := strings.Split(property, contentProp["!colsep"])
-        for _, rowValues := range tableRows {
-          values := strings.Split(rowValues, contentProp["!sep"])
-          var rowBody string
-          for _, addValues := range values {
-            rowBody += fmt.Sprintf(templates["tableValues"], templates["tableBorder"], strings.TrimSpace(addValues))
-          }
-          tableBody += fmt.Sprintf(templates["tableBody"], templates["tableBorder"], rowBody)
-        }
+        var tableBody string = genTable(property)
         htmlBody += fmt.Sprintf(templates["tableComplete"], cssBody, templates["tableBorder"], tableBody)
 
       case "$check":
-        checkPoints := strings.Split(property, contentProp["!sep"])
-        var checkPointsBody string
-        for _, points := range checkPoints {
-          checkPointsBody += fmt.Sprintf(templates["checkbox"], strMultiply("&nbsp;", 2) + strings.TrimSpace(points))
-        }
+        var checkPointsBody string = genCheck(property)
         htmlBody += fmt.Sprintf(templates["checkboxBody"], cssBody, checkPointsBody)
 
       case "$quote":
