@@ -155,4 +155,16 @@ var themes = map[string]map[string]string {
     "purple":    "#B48EAD",
   },
 
+  "Synthwave84": {
+    "bg":        "#2B213A",
+    "fg":        "#FFFFFF",
+    "red":       "#FE4450",
+    "green":     "#72F1B8",
+    "yellow":    "#F97E72",
+    "blue":      "#03EDF9",
+    "cyan":      "#03EDF9",
+    "magenta":   "#FF7EDB",
+    "orange":    "#FD8B38",
+  },
+
 }
