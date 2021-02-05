@@ -66,7 +66,7 @@ func main() {
 
       case "$link":
         genLink(property)
-        htmlBody += fmt.Sprintf(templates["link"], contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
+        htmlBody += fmt.Sprintf(templates["link"], cssBody, contentProp["cLink"], cssBody, contentProp["cLinkTitle"])
 
       case "$mail":
         genMail(property)
@@ -78,7 +78,7 @@ func main() {
 
       case "$table":
         var tableBody string = genTable(property)
-        htmlBody += fmt.Sprintf(templates["tableComplete"], cssBody, templates["tableBorder"], tableBody)
+        htmlBody += fmt.Sprintf(templates["tableComplete"], cssBody, fmt.Sprintf(templates["tableBorder"], themes[pageProp["~theme"]]["fg"]), tableBody)
 
       case "$check":
         var checkPointsBody string = genCheck(property)
