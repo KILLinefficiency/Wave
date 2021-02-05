@@ -69,9 +69,9 @@ func genTable(tableContent string) string {
     values := strings.Split(rowValues, contentProp["!sep"])
     var rowBody string
     for _, addValues := range values {
-      rowBody += fmt.Sprintf(templates["tableValues"], templates["tableBorder"], strings.TrimSpace(addValues))
+      rowBody += fmt.Sprintf(templates["tableValues"], fmt.Sprintf(templates["tableBorder"], themes[pageProp["~theme"]]["fg"]), strings.TrimSpace(addValues))
     }
-    tableBody += fmt.Sprintf(templates["tableBody"], templates["tableBorder"], rowBody)
+    tableBody += fmt.Sprintf(templates["tableBody"], fmt.Sprintf(templates["tableBorder"], themes[pageProp["~theme"]]["fg"]), rowBody)
   }
   return tableBody
 }
