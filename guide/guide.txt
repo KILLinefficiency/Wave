@@ -35,7 +35,10 @@ $text Wave is available for free on Github. Wave is available in source code for
 $nl
 
 $text Wave on Github:
+!align center
 $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILLinefficiency/Wave
+
+!align left
 
 $nl 3
 $text Before compiling Wave, make sure that you have the following things installed:
@@ -65,3 +68,69 @@ $text &nbsp;&nbsp;&nbsp;&nbsp; $ make
 !color white
 $nl 2
 $text An executable for Wave will be produced. You can use the executable as it is or add it to your PATH environment variable.
+
+$nl 3
+
+!size 25
+!color green
+$text 2. Structure of a Wave script.
+
+!size 20
+!color white
+
+$nl
+
+$text A Wave script is written in a plain text file. Wave scripts do not folow any extensions. You can have an extention for a Wave script or not as long as it's a text file. It's better to have a <i>.txt</i> extension.
+
+$nl
+
+$text A Wave script consists of three different types of keyword:
+
+$nl
+
+!points-type ordered
+!points-style lower-roman
+!color brown
+
+$points The Page Property Keywords ; The Content Property Keywords ; The Content Keywords
+
+$nl 2
+
+!color green
+
+$text 2.1 The Page Property Keywords
+
+!color white
+
+$nl
+$text The page property keywords start with a <i>~</i>. These properties apply to the entire document. These properties include some important elements that define the look of the document.
+
+$nl
+
+$text Here's a table of the page properties and their use:
+
+$nl
+
+!align center
+!color brown
+
+$table Page Property ; Use ; Example | ~title ; Sets the title to tab in Browser Window ; <i>~title Hello!</i> | ~theme ; Sets theme to the document ; <i>~theme HorizonDark</i> | ~bg ; Sets the background color of the document ; <i>~bg green</i> | ~fg ; Sets the default text color ; <i>~fg yellow</i> | ~img ; Sets an image as the document background ; <i>~img batman.png</i> | ~box ; Sets a padding specified in pixels to the document ; <i>~box 100</i> | ~box-style ; Sets a visible border to the padding ; <i>~box-style solid</i> | ~set ; Declares a variable and sets a value to it ; <i>~set name Bruce Wayne</i>
+
+$nl 2
+
+!align left
+!color green
+
+$text 2.2 The Content Property Keywords
+
+!color white
+
+$nl 2
+
+!color green
+
+$text 2.3 The Content Keywords
+
+!color white
+
+$nl 3
