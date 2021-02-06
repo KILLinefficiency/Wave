@@ -70,7 +70,7 @@ func main() {
 
       case "$mail":
         genMail(property)
-        htmlBody += fmt.Sprintf(templates["mail"], contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
+        htmlBody += fmt.Sprintf(templates["mail"], cssBody, contentProp["cMailAddress"], cssBody, contentProp["cMailTitle"])
 
       case "$points":
         var allPoints string = genPoints(property)
