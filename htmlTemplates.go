@@ -8,7 +8,7 @@ var templates = map[string]string {
   "css":             "style = 'font-family: %s; color: %s; background-color: %s; font-size: %spx; text-align: %s; margin: %spx; border-style: %s; list-style-type: %s;'",
   "text":            "\t\t<p %s>%s</p>\n",
   "link":            "\t\t<div %s>\n\t\t\t<a href = '%s' target = '_blank' %s>%s</a>\n\t\t</div><br>\n",
-  "mail":            "\t\t<a href = 'mailto:%s' %s>%s</a>\n",
+  "mail":            "\t\t<div %s>\n\t\t\t<a href = 'mailto:%s' %s>%s</a>\n\t\t</div><br>\n",
   "points":          "\t\t\t<li>%s</li>\n",
   "pointsBody":      "\t\t<%s %s>\n%s\t\t</%s>\n",
   "tableBorder":     "style = 'border: 2px solid black; padding: 5px; border-color: %s;'",
