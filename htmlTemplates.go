@@ -19,7 +19,7 @@ var templates = map[string]string {
   "checkboxBody":    "\t\t<div %s>\n%s\t\t</div>\n",
   "quote":           "\t\t<br><b><i>\"%s\"</b></i><br>\n",
   "image":           "\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n",
-  "htmlEnd":         "\t</body>\n</html>",
+  "htmlEnd":         "\t</body>\n</html>\n",
 }
 
 var messageTemplates = map[string]string {
