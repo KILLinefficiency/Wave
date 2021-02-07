@@ -1,92 +1,92 @@
 package main
 
 import (
-  "os"
-  "fmt"
-  "strings"
-  "io/ioutil"
+	"os"
+	"fmt"
+	"strings"
+	"io/ioutil"
 )
 
 func copyMap(mapOrignal map[string]string) map[string]string {
-  var mapCopy = make(map[string]string)
-  for key, value := range mapOrignal {
-    mapCopy[key] = value
-  }
-  return mapCopy
+	var mapCopy = make(map[string]string)
+	for key, value := range mapOrignal {
+		mapCopy[key] = value
+	}
+	return mapCopy
 }
 
 func strMultiply(strText string, times int) string {
-  var strFinal string
-  for loop := 0; loop < times; loop = loop + 1 {
-    strFinal = strFinal + strText
-  }
-  return strFinal
+	var strFinal string
+	for loop := 0; loop < times; loop = loop + 1 {
+		strFinal = strFinal + strText
+	}
+	return strFinal
 }
 
 func setTheme(content string, themeName string) string {
-  for colName, colCode := range themes[themeName] {
-    content = strings.Replace(content, colName, colCode, -1)
-  }
-  pageProp["pBGcolor"] = themes[themeName]["bg"]
-  return content
+	for colName, colCode := range themes[themeName] {
+		content = strings.Replace(content, colName, colCode, -1)
+	}
+	pageProp["pBGcolor"] = themes[themeName]["bg"]
+	return content
 }
 
 func getSourceName() string {
-  if len(os.Args) == 1 {
-    return ""
-  }
-  return os.Args[1]
+	if len(os.Args) == 1 {
+		return ""
+	}
+	return os.Args[1]
 }
 
 func makeHTML(file string) string {
-  fileName := strings.Split(file, ".")
+	fileName := strings.Split(file, ".")
 
-  if len(fileName) == 1 {
-    var htmlName string = file + ".html"
-    return htmlName
-  }
+	if len(fileName) == 1 {
+		var htmlName string = file + ".html"
+		return htmlName
+	}
 
-  fileName[len(fileName) - 1] = ".html"
-  var htmlName string = strings.Join(fileName, "")
-  return htmlName
+	fileName[len(fileName) - 1] = ".html"
+	var htmlName string = strings.Join(fileName, "")
+	return htmlName
 }
 
 func splitFileText(file string) []string {
-  byteStream, err := ioutil.ReadFile(file)
-  if err != nil {
-    fmt.Printf("Invalid file address: %s\n", file)
-    os.Exit(2)
-  }
+	byteStream, err := ioutil.ReadFile(file)
+	if err != nil {
+		fmt.Printf("Invalid file address: %s\n", file)
+		os.Exit(2)
+	}
 
-  var script string = string(byteStream)
-  lines := strings.Split(strings.TrimSpace(script), "\n")
-  return lines
+	var script string = string(byteStream)
+	lines := strings.Split(strings.TrimSpace(script), "\n")
+	return lines
 }
 
 func makeHTMLfile(sourceFile string, htmlContent string) {
-  var htmlFileName string = makeHTML(sourceFile)
-  htmlFile, err := os.Create(htmlFileName)
-  if err != nil {
-    fmt.Printf(messageTemplates["fileNotFoundError"], htmlFileName, htmlContent)
-    os.Exit(3)
-  }
-  htmlFile.WriteString(htmlContent)
-  htmlFile.Close()
+	var htmlFileName string = makeHTML(sourceFile)
+	htmlFile, err := os.Create(htmlFileName)
+	if err != nil {
+		fmt.Printf(messageTemplates["fileNotFoundError"], htmlFileName, htmlContent)
+		os.Exit(3)
+	}
+	htmlFile.WriteString(htmlContent)
+	htmlFile.Close()
 }
 
 func readFileForHTML(file string, tabNo int) string {
-  textFile, _ := ioutil.ReadFile(file)
-  var fileContent string = string(textFile)
-  fileContent = strings.Replace(fileContent, "\n", "<br>", -1)
-  fileContent = strings.Replace(fileContent, " ", "&nbsp;", -1)
-  fileContent = strings.Replace(fileContent, "\t", strMultiply("&nbsp;", tabNo), -1)
-  return fileContent
+	textFile, _ := ioutil.ReadFile(file)
+	var fileContent string = string(textFile)
+	fileContent = strings.Replace(fileContent, "\n", "<br>", -1)
+	fileContent = strings.Replace(fileContent, " ", "&nbsp;", -1)
+	fileContent = strings.Replace(fileContent, "\t", strMultiply("&nbsp;", tabNo), -1)
+	return fileContent
 }
 
 func writeSpecialHTML(htmlText string) string {
-  var text string = htmlText
-  for char, charCode := range specialChar {
-    text = strings.Replace(text, char, charCode, -1)
-  }
-  return text
+	var text string = htmlText
+	for char, charCode := range specialChar {
+		text = strings.Replace(text, char, charCode, -1)
+	}
+	return text
 }
