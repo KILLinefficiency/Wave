@@ -82,11 +82,3 @@ func readFileForHTML(file string, tabNo int) string {
 	fileContent = strings.Replace(fileContent, "\t", strMultiply("&nbsp;", tabNo), -1)
 	return fileContent
 }
-
-func writeSpecialHTML(htmlText string) string {
-	var text string = htmlText
-	for char, charCode := range specialChar {
-		text = strings.Replace(text, char, charCode, -1)
-	}
-	return text
-}
