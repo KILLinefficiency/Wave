@@ -30,11 +30,3 @@ var contentProp = map[string]string {
   "cMailAddress":        "",
   "cLinkTitle":          "Wave",
 }
-
-var specialChar = map[string]string {
-  "\"":     "&quot;",
-  "'":      "&apos;",
-  "&":      "&amp;",
-  "<":      "&lt;",
-  ">":      "&gt;",
-}
