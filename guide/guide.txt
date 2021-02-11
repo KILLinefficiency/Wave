@@ -11,7 +11,7 @@ $nl 3
 
 !size 25
 !color red
-$text A markup language that transpiles it's syntax to HTML with inline CSS.
+$text A markup language that transpiles its syntax to HTML with inline CSS.
 
 $nl 5
 
@@ -80,7 +80,31 @@ $text 2. Structure of a Wave script.
 
 $nl
 
-$text A Wave script is written in a plain text file. Wave scripts do not folow any extensions. You can have an extention for a Wave script or not as long as it's a text file. It's better to have a <i>.txt</i> extension.
+$text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extention for a Wave script or not as long as it's a text file. It's better to have a <i>.txt</i> extension.
+
+$nl
+
+!color green
+
+$text 2.1 Compiling a Wave script.
+
+$nl
+
+!color white
+
+$text A Wave script can be compiled by passing it to the Wave traspiler.
+
+$nl
+
+!color blue
+!font Consolas
+
+$text &nbsp;&nbsp;&nbsp;&nbsp; $ wave guide.txt
+
+!color white
+!font Arial
+
+!color white
 
 $nl
 
@@ -98,7 +122,7 @@ $nl 2
 
 !color green
 
-$text 2.1 The Page Property Keywords
+$text 2.2 The Page Property Keywords
 
 !color white
 
@@ -121,7 +145,7 @@ $nl 2
 !align left
 !color green
 
-$text 2.2 The Content Property Keywords
+$text 2.3 The Content Property Keywords
 
 $nl
 
@@ -145,7 +169,7 @@ $nl 2
 !align left
 !color green
 
-$text 2.3 The Content Keywords
+$text 2.4 The Content Keywords
 
 $nl
 
