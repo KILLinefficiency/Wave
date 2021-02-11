@@ -30,7 +30,7 @@ $nl
 
 !size 20
 !color white
-$text Wave is available for free on Github. Wave is available in source code form only. 
+$text Wave is available for free on Github. Wave is available in source code form only.
 
 $nl
 
@@ -107,7 +107,7 @@ $text The page property keywords start with a <i>~</i>. These properties apply t
 
 $nl
 
-$text Here's a table of the page properties and their use:
+$text Here's a table of the page properties and their uses:
 
 $nl
 
@@ -123,13 +123,31 @@ $nl 2
 
 $text 2.2 The Content Property Keywords
 
+$nl
+
 !color white
+
+$text The content property keywords start with a <i>!</i>. These properties apply to the entire content that come after the declaration of the content property. These properties define the look of the content in the document.
+
+$nl
+
+$text Here's a table of the the content properties and their uses:
+
+$nl
+
+!align center
+!color brown
+
+$table Content Property ; Use ; Example | !bg ;  Sets background for the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size ; <i>!size 50</i> | !align ; Chnages the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
 
 $nl 2
 
+!align left
 !color green
 
 $text 2.3 The Content Keywords
+
+$nl
 
 !color white
 
