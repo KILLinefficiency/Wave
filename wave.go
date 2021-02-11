@@ -46,8 +46,6 @@ func main() {
 
     applyProperties(tokens[0], property, &contentDefaults)
 
-    property = writeSpecialHTML(property)
-
     cssBody = fmt.Sprintf(templates["css"], contentProp["!font"], contentProp["cColor"], contentProp["cBGcolor"], contentProp["!size"], contentProp["!align"], contentProp["!box"], contentProp["!box-style"], contentProp["!points-style"])
 
     switch tokens[0] {
