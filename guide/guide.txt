@@ -2,6 +2,9 @@
 ~title Guide to Wave Markup Language
 ~box 100
 
+~set code_bg #272822
+~set code_fg #A6E22E
+
 !align center
 !size 50
 !color green
@@ -189,9 +192,17 @@ $nl 2
 
 $text 2.4.1. &nbsp;&nbsp;&nbsp;&nbsp; $text
 
-!white
+$nl 2
 
-$text
+!color white
+
+$text As the name suggests, <i>$text</i> adds text in the document.
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -200,9 +211,15 @@ $nl 2
 
 $text 2.4.2. &nbsp;&nbsp;&nbsp;&nbsp; $nl
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -211,9 +228,15 @@ $nl 2
 
 $text 2.4.3. &nbsp;&nbsp;&nbsp;&nbsp; $link
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -222,9 +245,15 @@ $nl 2
 
 $text 2.4.4. &nbsp;&nbsp;&nbsp;&nbsp; $mail
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -233,9 +262,15 @@ $nl 2
 
 $text 2.4.5. &nbsp;&nbsp;&nbsp;&nbsp; $file
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -244,9 +279,15 @@ $nl 2
 
 $text 2.4.6. &nbsp;&nbsp;&nbsp;&nbsp; $quote
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -255,9 +296,15 @@ $nl 2
 
 $text 2.4.7. &nbsp;&nbsp;&nbsp;&nbsp; $pic
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -266,9 +313,15 @@ $nl 2
 
 $text 2.4.8. &nbsp;&nbsp;&nbsp;&nbsp; $quote
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -277,9 +330,15 @@ $nl 2
 
 $text 2.4.9. &nbsp;&nbsp;&nbsp;&nbsp; $points
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 
 $nl 2
@@ -288,9 +347,15 @@ $nl 2
 
 $text 2.4.10. &nbsp;&nbsp; $table
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
 
 $nl 2
 
@@ -298,6 +363,14 @@ $nl 2
 
 $text 2.4.11. &nbsp;&nbsp; $html
 
-!white
+!color white
 
 $text
+!box 50
+!bg %code_bg
+!color %code_fg
+$text ~bg green<br>!color yellow<br>$text Hello!
+!box 0
+!bg black
+
+$nl 2
