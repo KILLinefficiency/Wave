@@ -200,9 +200,11 @@ $text As the name suggests, <i>$text</i> adds text in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -217,9 +219,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -234,9 +238,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -251,9 +257,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -268,9 +276,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -285,9 +295,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -302,9 +314,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -319,9 +333,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -336,9 +352,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 
 $nl 2
@@ -353,9 +371,11 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 $nl 2
 
@@ -369,8 +389,10 @@ $text
 !box 50
 !bg %code_bg
 !color %code_fg
+!font Consolas
 $text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
 !box 0
-!bg black
+!bg bg
 
 $nl 2
