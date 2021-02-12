@@ -175,4 +175,129 @@ $nl
 
 !color white
 
-$nl 3
+$nl
+
+$text The content keywords start with a <i>$</i>. These keywords define the contents of the docuement. Contents include text, pictures, tables, etc.
+
+$nl
+
+$text Here are the content keyword explained:
+
+$nl 2
+
+!color purple
+
+$text 2.4.1. &nbsp;&nbsp;&nbsp;&nbsp; $text
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.2. &nbsp;&nbsp;&nbsp;&nbsp; $nl
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.3. &nbsp;&nbsp;&nbsp;&nbsp; $link
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.4. &nbsp;&nbsp;&nbsp;&nbsp; $mail
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.5. &nbsp;&nbsp;&nbsp;&nbsp; $file
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.6. &nbsp;&nbsp;&nbsp;&nbsp; $quote
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.7. &nbsp;&nbsp;&nbsp;&nbsp; $pic
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.8. &nbsp;&nbsp;&nbsp;&nbsp; $quote
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.9. &nbsp;&nbsp;&nbsp;&nbsp; $points
+
+!white
+
+$text
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.10. &nbsp;&nbsp; $table
+
+!white
+
+$text
+
+$nl 2
+
+!color purple
+
+$text 2.4.11. &nbsp;&nbsp; $html
+
+!white
+
+$text
