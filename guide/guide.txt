@@ -443,3 +443,12 @@ $text $text This is being written using Wave syntax.<br>$html %<marquee%>Hello f
 !bg bg
 
 $nl 2
+
+!size 25
+!color green
+$text 3. More Utilities
+$nl 3
+
+!size 20
+!color fg
+$text
