@@ -123,6 +123,9 @@ $text %sp%sp%sp%sp $ wave guide.txt
 !color fg
 
 $nl
+$text The transpiler generates a <i>.html</i> file of the same name. This is the final document.
+
+$nl 2
 
 $text A Wave script consists of three different types of keyword:
 
@@ -286,7 +289,7 @@ $text 2.4.4. %sp%sp%sp%sp $mail
 
 $nl 2
 
-$text Like, <i>$link</i>, <i>$mail</i> allows the user to add mail address in the document.
+$text Like <i>$link</i>, <i>$mail</i> allows the user to add mail address in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -450,5 +453,32 @@ $text 3. More Utilities
 $nl 3
 
 !size 20
+!color green
+$text 3.1 Themes
+
 !color fg
-$text
+$nl 2
+$text Wave allows documents to have themes. The colors change their shades according to the selected theme. Set the required theme using the <i>~theme</i> page property. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~theme HorizonDark
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text Make sure to add the <i>~theme</i> content property at the very top of the document for the theme to properly take effect.
+$nl 2
+
+$text You can choose from the following themes:
+$nl
+$points Default ; OneDark ; Dracula ; Monokai ; GruvboxLight ; GruvboxDark ; SnazzyLight ; LaserWave ; HorizonLight ; HorizonDark ; Nord ; Synthwave84
+$nl
+$text Theme names are case sensitive.
+
+$nl 3
+!color green
+$text 3.2 Variables
