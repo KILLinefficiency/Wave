@@ -387,15 +387,21 @@ $text 2.4.9. %sp%sp%sp%sp $check
 
 !color fg
 
-$text
+$nl 2
+
+$text Add check boxes inside the document using <i>$check</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $text Guest List:<br>$check Oliver Queen ; Barry Allen ; Kara Danvers ; Clark Kent ; Kate Kane ; Bruce Wayne
 !font Arial
 !box 0
 !bg bg
+
+!color fg
+$text The default delimiter (<i>;</i>) can be changed using the content property <i>!sep</i>.
+$nl 2
 
 
 $nl 2
