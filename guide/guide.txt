@@ -45,6 +45,7 @@ $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILL
 
 $nl 3
 $text Before compiling Wave, make sure that you have the following things installed:
+$nl
 $points Go Programming Language ; GNU Make ; A Web Browser
 
 $nl 3
@@ -53,7 +54,7 @@ $text Clone Wave onto your system:
 $nl
 !font Consolas
 !color blue
-$text &nbsp;&nbsp;&nbsp;&nbsp; $ git clone https://www.github.com/KILLinefficiency/Wave.git
+$text %sp%sp%sp%sp $ git clone https://www.github.com/KILLinefficiency/Wave.git
 
 !font Arial
 !color fg
@@ -64,13 +65,25 @@ $nl
 
 !font Consolas
 !color blue
-$text &nbsp;&nbsp;&nbsp;&nbsp; $ cd Wave
-$text &nbsp;&nbsp;&nbsp;&nbsp; $ make
+$text %sp%sp%sp%sp $ cd Wave
+$text %sp%sp%sp%sp $ make
 
 !font Arial
 !color fg
 $nl 2
 $text An executable for Wave will be produced. You can use the executable as it is or add it to your PATH environment variable.
+
+$text Compiling Wave on a Non-Unix system.
+$nl 2
+$text For a Non-Unix system like Windows, which does not support GNU Make natively, compile Wave directly.
+$nl 2
+
+!font Consolas
+!color blue
+$text %sp%sp%sp%sp > git clone https://www.github.com/KILLinefficiency/Wave.git
+$text %sp%sp%sp%sp > cd Wave
+$text %sp%sp%sp%sp > go build wave.go lib.go themes.go defaults.go variables.go contentLib.go htmlTemplates.go
+!font Arial
 
 $nl 3
 
@@ -102,7 +115,7 @@ $nl
 !color blue
 !font Consolas
 
-$text &nbsp;&nbsp;&nbsp;&nbsp; $ wave guide.txt
+$text %sp%sp%sp%sp $ wave guide.txt
 
 !color fg
 !font Arial
@@ -190,7 +203,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.1. &nbsp;&nbsp;&nbsp;&nbsp; $text
+$text 2.4.1. %sp%sp%sp%sp $text
 
 $nl 2
 
@@ -211,7 +224,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.2. &nbsp;&nbsp;&nbsp;&nbsp; $nl
+$text 2.4.2. %sp%sp%sp%sp $nl
 
 !color fg
 
@@ -232,7 +245,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.3. &nbsp;&nbsp;&nbsp;&nbsp; $link
+$text 2.4.3. %sp%sp%sp%sp $link
 
 !color fg
 
@@ -267,18 +280,43 @@ $nl 2
 
 !color purple
 
-$text 2.4.4. &nbsp;&nbsp;&nbsp;&nbsp; $mail
+$text 2.4.4. %sp%sp%sp%sp $mail
 
 !color fg
 
-$nl
+$nl 2
 
-$text
+$text Like, <i>$link</i>, <i>$mail</i> allows the user to add mail address in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $mail oliverqueen@queenconsolidated.com ; Contact Oliver Queen
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text The default delimiter (<i>;</i>) can, of course be changed with the content property <i>!sep</i>.
+$nl 2
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.5. %sp%sp%sp%sp $file
+
+!color fg
+
+$nl 2
+
+$text <i>$file</i> reads the content of a file and adds them to the document.
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text $file some_random_file.txt
 !font Arial
 !box 0
 !bg bg
@@ -288,45 +326,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.5. &nbsp;&nbsp;&nbsp;&nbsp; $file
-
-!color fg
-
-$text
-!box 50
-!bg %code_bg
-!color %code_fg
-!font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
-!font Arial
-!box 0
-!bg bg
-
-
-$nl 2
-
-!color purple
-
-$text 2.4.6. &nbsp;&nbsp;&nbsp;&nbsp; $quote
-
-!color fg
-
-$text
-!box 50
-!bg %code_bg
-!color %code_fg
-!font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
-!font Arial
-!box 0
-!bg bg
-
-
-$nl 2
-
-!color purple
-
-$text 2.4.7. &nbsp;&nbsp;&nbsp;&nbsp; $pic
+$text 2.4.6. %sp%sp%sp%sp $quote
 
 !color fg
 
@@ -345,7 +345,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.8. &nbsp;&nbsp;&nbsp;&nbsp; $quote
+$text 2.4.7. %sp%sp%sp%sp $pic
 
 !color fg
 
@@ -364,7 +364,7 @@ $nl 2
 
 !color purple
 
-$text 2.4.9. &nbsp;&nbsp;&nbsp;&nbsp; $points
+$text 2.4.8. %sp%sp%sp%sp $points
 
 !color fg
 
@@ -383,7 +383,26 @@ $nl 2
 
 !color purple
 
-$text 2.4.10. &nbsp;&nbsp; $table
+$text 2.4.9. %sp%sp%sp%sp $check
+
+!color fg
+
+$text
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~bg green<br>!color yellow<br>$text Hello!
+!font Arial
+!box 0
+!bg bg
+
+
+$nl 2
+
+!color purple
+
+$text 2.4.10. %sp%sp $table
 
 !color fg
 
@@ -401,16 +420,18 @@ $nl 2
 
 !color purple
 
-$text 2.4.11. &nbsp;&nbsp; $html
+$text 2.4.11. %sp%sp $html
 
 !color fg
 
-$text
+$nl 2
+
+$text Add inline HTML in the document using <i>$html</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $text This is being written using Wave syntax.<br>$html %<marquee%>Hello from HTML!%</marquee%>
 !font Arial
 !box 0
 !bg bg
