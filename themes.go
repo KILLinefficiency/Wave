@@ -111,7 +111,7 @@ var themes = map[string]map[string]string {
     },
 
     "HorizonLight": {
-        "bg":        "F9CBBE",
+        "bg":        "#F9CBBE",
         "fg":        "#1A1C23",
         "black":     "#1A1C23",
         "white":     "#F9CBBE",
