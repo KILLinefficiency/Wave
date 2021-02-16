@@ -85,7 +85,7 @@ func main() {
                 htmlBody += fmt.Sprintf(templates["checkboxBody"], cssBody, checkPointsBody)
 
             case "$quote":
-                htmlBody += fmt.Sprintf(templates["quote"], property)
+                htmlBody += fmt.Sprintf(templates["quote"], cssBody, property)
 
             case "$pic":
                 htmlBody += fmt.Sprintf(templates["image"], contentProp["!align"], contentProp["!box"], contentProp["!box-style"], contentProp["cWidth"], contentProp["cHeight"], property)
