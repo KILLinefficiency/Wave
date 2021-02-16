@@ -17,7 +17,7 @@ var templates = map[string]string {
     "tableComplete":   "\t\t<div %s>\n\t\t\t<table %s>\n%s\t\t\t</table>\n\t\t</div>\n",
     "checkbox":        "\t\t\t<input type = 'checkbox'>%s<br>\n",
     "checkboxBody":    "\t\t<div %s>\n%s\t\t</div>\n",
-    "quote":           "\t\t<br><b><i>\"%s\"</b></i><br>\n",
+    "quote":           "\t\t<div %s><br><blockquote><b><i>%s</b></i></blockquote><br></div>\n",
     "image":           "\t\t<div style = 'text-align: %s; margin: %spx; border-style: %s;'>\n\t\t\t<img width = '%s' height = '%s' src = %s>\n\t\t</div>\n",
     "htmlEnd":         "\t</body>\n</html>\n",
 
