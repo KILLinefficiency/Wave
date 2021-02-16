@@ -157,7 +157,7 @@ $nl
 !align center
 !color brown
 
-$table Page Property ; Use ; Example | ~title ; Sets the title to tab in Browser Window ; <i>~title Hello!</i> | ~theme ; Sets theme to the document ; <i>~theme HorizonDark</i> | ~bg ; Sets the background color of the document ; <i>~bg green</i> | ~fg ; Sets the default text color ; <i>~fg yellow</i> | ~img ; Sets an image as the document background ; <i>~img batman.png</i> | ~box ; Sets a padding specified in pixels to the document ; <i>~box 100</i> | ~box-style ; Sets a visible border to the padding ; <i>~box-style solid</i> | ~set ; Declares a variable and sets a value to it ; <i>~set name Bruce Wayne</i>
+$table <b>Page Property</b> ; <b>Use</b> ; <b>Example</b> | ~title ; Sets the title to tab in Browser Window ; <i>~title Hello!</i> | ~theme ; Sets theme to the document ; <i>~theme HorizonDark</i> | ~bg ; Sets the background color of the document ; <i>~bg green</i> | ~fg ; Sets the default text color ; <i>~fg yellow</i> | ~img ; Sets an image as the document background ; <i>~img batman.png</i> | ~box ; Sets a padding specified in pixels to the document ; <i>~box 100</i> | ~box-style ; Sets a visible border to the padding ; <i>~box-style solid</i> | ~set ; Declares a variable and sets a value to it ; <i>~set name Bruce Wayne</i>
 
 $nl 2
 
@@ -181,7 +181,7 @@ $nl
 !align center
 !color brown
 
-$table Content Property ; Use ; Example | !bg ;  Sets background for the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size ; <i>!size 50</i> | !align ; Chnages the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
+$table <b>Content Property</b> ; <b>Use</b> ; <b>Example</b> | !bg ;  Sets background for the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size ; <i>!size 50</i> | !align ; Chnages the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
 
 $nl 2
 
@@ -488,7 +488,7 @@ $text 3.2 Variables
 
 $nl 2
 
-$text Set variables in a Wave script using the <i>~set</i> page property.
+$text Set variables in a Wave script using the <i>~set</i> page property. Variable names cannot have spaces in them.
 
 !box 50
 !bg %code_bg
@@ -516,6 +516,19 @@ $text ~set person1 Oliver Queen<br>~set person2 Bruce Wayne<br>$text %-person1 m
 
 !color fg
 
+$text The value of the same variable can be changed multiple times.
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~set Robin Jason Todd<br>~set Robin Tim Drake<br>$text %-Robin is the new Robin.
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+
 $text Use <i>%--</i> to escape the <i>%-</i> symbol. Like,
 
 !box 50
@@ -530,3 +543,19 @@ $text ~set name Barry Allen<br>$text %--name
 !color fg
 
 $text This will render <i>%-name</i> in the document and not <i>Barry Allen</i>.
+
+$nl 3
+
+!color green
+$text 3.3 Special Characters
+$nl 2
+!color fg
+$text Wave also supports special HTML character. Some of the mostly used special characters come as variables in Wave.
+$nl
+$text Here's the table of some of the characters available as variables in Wave:
+$nl 2
+
+$table <b>Variable</b> ; <b>Special Character</b> | %-< ; %< | %-> ; %> | %-& ; %& | %-' ; %' | %-" ; %" | %-- ; %- | %-sp ; A space character | %-source_name ; Name of the Wave file | %-file_name ; Name of the transpiled HTML document
+
+$nl 2
+$text These special character variables can be overswritten if you use the <i>~set</i> content property on them. Therefore, be careful.
