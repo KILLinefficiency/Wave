@@ -482,3 +482,49 @@ $text Theme names are case sensitive.
 $nl 3
 !color green
 $text 3.2 Variables
+!color fg
+
+$nl 2
+
+$text Set variables in a Wave script using the <i>~set</i> page property.
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~set person1 Oliver Queen<br>~set person2 Bruce Wayne
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text This will set the values of <i>person1</i> and <i>person2</i> to <i>Oliver Queen</i> and <i>Bruce Wayne</i> respectively.
+$nl 2
+
+$text Call the variables using the <i>%-</i> symbol. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~set person1 Oliver Queen<br>~set person2 Bruce Wayne<br>$text %-person1 meets %-person2.
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+
+$text Use <i>%--</i> to escape the <i>%-</i> symbol. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text ~set name Barry Allen<br>$text %--name
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+
+$text This will render <i>%-name</i> in the document and not <i>Barry Allen</i>.
