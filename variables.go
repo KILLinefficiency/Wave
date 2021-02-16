@@ -9,4 +9,5 @@ var variables = map[string]string {
     "&": "&amp;",
     "\"": "&quot;",
     "'": "&apos;",
+    "-": "&#37;",
 }
