@@ -333,12 +333,14 @@ $text 2.4.6. %sp%sp%sp%sp $quote
 
 !color fg
 
-$text
+$nl 2
+
+$text Use <i>$quote</i> to add quotations in your document.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $quote %"Being happy doesn't mean you dont have issues. It just means that you're working on them.%"%<br%>%<br%>- Oliver Queen
 !font Arial
 !box 0
 !bg bg
