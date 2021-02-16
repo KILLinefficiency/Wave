@@ -555,8 +555,13 @@ $nl
 $text Here's the table of some of the special characters available as variables in Wave:
 $nl 2
 
+!color brown
+!align center
 !sep .
-$table <b>Variable</b> . <b>Special Character</b> | %-< . %< | %-> . %> | %-& . %& | %-' . %' | %-" . %" | %-- . %- | %-sp . A space character | %-source_name . Name of the Wave file | %-file_name . Name of the transpiled HTML document
+$table <b>Variable</b> . <b>Special Character / Value</b> | %-< . %< | %-> . %> | %-& . %& | %-' . %' | %-" . %" | %-- . %- | %-sp . A space character | %-source_name . Name of the Wave file | %-file_name . Name of the transpiled HTML document
+!sep ;
+!align left
+!color fg
 
 $nl 2
 $text These special character variables can be overwritten if you use the <i>~set</i> content property on them. Therefore, be careful.
