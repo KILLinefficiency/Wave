@@ -94,23 +94,23 @@ $text 2. Structure of a Wave script.
 !size 20
 !color fg
 
-$nl
+$nl 2
 
 $text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extention for a Wave script or not as long as it's a text file. It's better to have a <i>.txt</i> extension.
 
-$nl
+$nl 2
 
 !color green
 
 $text 2.1 Compiling a Wave script.
 
-$nl
+$nl 2
 
 !color fg
 
 $text A Wave script can be compiled by passing it to the Wave traspiler.
 
-$nl
+$nl 2
 
 !color blue
 !font Consolas
@@ -122,7 +122,7 @@ $text %sp%sp%sp%sp $ wave guide.txt
 
 !color fg
 
-$nl
+$nl 2
 $text The transpiler generates a <i>.html</i> file of the same name. This is the final document.
 
 $nl 2
@@ -238,7 +238,7 @@ $text <i>$nl</i> adds new line in the document. By default <i>$nl</i> adds only 
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text $text Hello World!<br>$nl 3<br>$text How are you?
+$text !align center<br>$text Hello World!<br>$nl 3<br>!align right<br>$text How are you?
 !font Arial
 !box 0
 !bg bg
@@ -315,6 +315,7 @@ $text 2.4.5. %sp%sp%sp%sp $file
 $nl 2
 
 $text <i>$file</i> reads the content of a file and adds them to the document.
+
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -324,6 +325,23 @@ $text $file some_random_file.txt
 !box 0
 !bg bg
 
+!color fg
+
+$nl
+$text The file is read as it is in Wave. The default tab used while reading is 4 spaces. However, you can use the <i>!tab</i> content property to change this.
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !tab 8<br>$file some_random_file.txt
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text This sets the tab to 8 spaces.
+$nl 2
 
 $nl 2
 
@@ -373,15 +391,36 @@ $text 2.4.8. %sp%sp%sp%sp $points
 
 !color fg
 
-$text
+$nl 2
+
+$text Add list of points in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $text Bat Family:<br>$nl<br>$points Bruce Wayne ; Alfred Pennyworth ; Lucius Fox ; Dick Grayson ; Jason Todd ; Tim Drake ; Damain Wayne ; Barbara Gordon
 !font Arial
 !box 0
 !bg bg
+
+!color fg
+$text The default delimiter (;) can be changed using the content property <i>!sep</i>.
+$nl
+$text You can also changes between ordered and unrodered lists and change their styles. Use the <i>!points-type</i> content property to switch between ordered list (<i>ol</i>) or unordered list (<i>ul</i>). Use the <i>!points-style</i> content property to change the style of the points.
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !points-type ol<br>!points-style lower-roman<br>$points Oliver Queen ; Bruce Wayne<br><br>$nl 2<br>!point-type ul<br>!points-style square<br>$points Green Arrow ; Batman
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+
+$text The points style used in Wave are the same as the list style used in HTML.
+$nl 2
 
 
 $nl 2
@@ -565,3 +604,6 @@ $table <b>Variable</b> . <b>Special Character / Value</b> | %-< . %< | %-> . %> 
 
 $nl 2
 $text These special character variables can be overwritten if you use the <i>~set</i> content property on them. Therefore, be careful.
+
+$nl
+$text HTML tags like <i>%<i%></i>, <i>%<b%></i> and <i>%<br%></i> also work in Wave.
