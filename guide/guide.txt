@@ -456,15 +456,39 @@ $text 2.4.10. %sp%sp $table
 
 !color fg
 
-$text
+$text Add tables in your document using <i>$table</i>. The items in the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $table Name ; Alias | Oliver Queen ; Green Arrow | Barry Allen ; The Flash
 !font Arial
 !box 0
 !bg bg
+
+!color fg
+$text Tables can be made with any number of rows and columns. Like,
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text $table Name ; Alias ; Abilities ; City | Oliver Queen ; Green Arrow ; Archery and hand-to-hand combat ; Star City | Barry Allen ; The Flash ; Super Speed ; Central City | Clark Kent ; Superman ; Superhuman Strength ; Metropolis | Bruce Wayne ; Batman ; Detective skills and hand-to-hand combat ; Gotham
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text The item separater and the column separator can be changed using the <i>!sep</i> and the <i>!colsep</i> content properties respectively. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !sep ,<br>!colsep -<br>$table Name , Alias - Oliver Queen , Green Arrow - Barry Allen , The Flash
+!box 0
+!bg bg
+
+!color fg
 
 $nl 2
 
