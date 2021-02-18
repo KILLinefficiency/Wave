@@ -20,8 +20,10 @@ func applyProperties(keyword string, property string, defaultMap *map[string]str
 
         case "!dim":
             widthHeight := strings.Split(property, "x")
-            contentProp["cWidth"] = strings.TrimSpace(widthHeight[0])
-            contentProp["cHeight"] = strings.TrimSpace(widthHeight[1])
+            if len(widthHeight) == 2 {
+                contentProp["cWidth"] = strings.TrimSpace(widthHeight[0])
+                contentProp["cHeight"] = strings.TrimSpace(widthHeight[1])
+            }
 
         case "!default":
             contentProp = copyMap(*defaultMap)
