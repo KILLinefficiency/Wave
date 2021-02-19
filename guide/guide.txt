@@ -372,15 +372,67 @@ $text 2.4.7. %sp%sp%sp%sp $pic
 
 !color fg
 
-$text
+$nl 2
+
+$text Insert images into your document using <i>$pic</i>. Pass the absolute or relative path of the image to <i>$pic</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text ~bg green<br>!color yellow<br>$text Hello!
+$text $pic resources/images/batman.png
 !font Arial
 !box 0
 !bg bg
+
+!color fg
+$text You can also specify the dimensions of the image using the <i>!dim</i> content property. Specify the width and the height of the image respectively in pixels, separated by the character <i>x</i>. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !dim 750x500<br>$pic resources/images/batman.png
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text You can also choose to set only the width of the image. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !dim 750x<br>$pic resources/images/batman.png
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text In the same way, you can also choose to set only the height of the image. Like,
+
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !dim x500<br>$pic resources/images/batman.png
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+$text Also, you can set the size of the image back to the normal. Like,
+!box 50
+!bg %code_bg
+!color %code_fg
+!font Consolas
+$text !dim x<br>$pic resources/images/batman.png
+!font Arial
+!box 0
+!bg bg
+
+!color fg
+
 
 
 $nl 2
@@ -419,7 +471,7 @@ $text !points-type ol<br>!points-style lower-roman<br>$points Oliver Queen ; Bru
 
 !color fg
 
-$text The points style used in Wave are the same as the list style used in HTML.
+$text The point styles used in Wave are the same as the list styles used in HTML.
 $nl 2
 
 
@@ -455,6 +507,8 @@ $nl 2
 $text 2.4.10. %sp%sp $table
 
 !color fg
+
+$nl 2
 
 $text Add tables in your document using <i>$table</i>. The items in the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
 !box 50
