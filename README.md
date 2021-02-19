@@ -19,6 +19,6 @@ $ make
 
 ### The Documentation
 
-The documentation for Wave is written in Wave itself. It is available as a Wave script as well as a complete transpiled HTML document as well.
+The documentation for Wave is written in Wave itself. It is available as a [Wave script](guide/guide.txt) as well as a complete transpiled [HTML document](guide/guide.html) as well.
 
-The documentation is available in the ``guide`` directory in this repository.
+The documentation is available in the [``guide``](guide) directory in this repository.
