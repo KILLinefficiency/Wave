@@ -421,7 +421,7 @@ $text !dim x500<br>$pic resources/images/batman.png
 !bg bg
 
 !color fg
-$text Also, you can set the size of the image back to the normal. Like,
+$text Also, you can set the size of the image back to normal. Like,
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -458,7 +458,7 @@ $text $text Bat Family:<br>$nl<br>$points Bruce Wayne ; Alfred Pennyworth ; Luci
 !color fg
 $text The default delimiter (;) can be changed using the content property <i>!sep</i>.
 $nl
-$text You can also changes between ordered and unrodered lists and change their styles. Use the <i>!points-type</i> content property to switch between ordered list (<i>ol</i>) or unordered list (<i>ul</i>). Use the <i>!points-style</i> content property to change the style of the points.
+$text You can also change between ordered and unrodered lists and change their styles. Use the <i>!points-type</i> content property to switch between ordered list (<i>ol</i>) or unordered list (<i>ul</i>). Use the <i>!points-style</i> content property to change the style of the points.
 
 !box 50
 !bg %code_bg
