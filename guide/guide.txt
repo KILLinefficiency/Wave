@@ -96,7 +96,7 @@ $text 2. Structure of a Wave script
 
 $nl 2
 
-$text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extention for a Wave script or not as long as it's a text file. However, it's better to have a <i>.txt</i> extension.
+$text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extension for a Wave script or not as long as it's a text file. However, it's better to have a <i>.txt</i> extension.
 
 $nl 2
 
@@ -106,7 +106,7 @@ $text 2.1 Compiling a Wave script
 $nl 2
 
 !color fg
-$text A Wave script can be compiled by passing it to the Wave traspiler as a command-line argument.
+$text A Wave script can be compiled by passing it to the Wave transpiler as a command-line argument.
 
 $nl 2
 
@@ -162,7 +162,7 @@ $text 2.3 The Content Property Keywords
 $nl
 
 !color fg
-$text The content property keywords start with the symbol <i>!</i>. These properties apply to the entire content that come after the declaration of the content property. These properties define the look of the content in the document.
+$text The content property keywords start with the symbol <i>!</i>. These properties apply to the entire content that comes after the declaration of the content property. These properties define the look of the content in the document.
 $nl
 
 $text Here's a table of the the content properties and their uses:
@@ -172,7 +172,7 @@ $nl
 !align center
 !color brown
 
-$table <b>Content Property</b> ; <b>Use</b> ; <b>Example</b> | !bg ;  Sets background color to the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size (specified in pixels) ; <i>!size 50</i> | !align ; Changes the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
+$table <b>Content Property</b> ; <b>Use</b> ; <b>Example</b> | !bg ;  Sets background color to the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size (specified in pixels) ; <i>!size 50</i> | !align ; Changes the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimensions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
 
 $nl 2
 
@@ -264,7 +264,7 @@ $text 2.4.4. %sp%sp%sp%sp $mail
 !color fg
 $nl 2
 
-$text Like <i>$link</i>, <i>$mail</i> allows you to add mail address in the document.
+$text Like <i>$link</i>, <i>$mail</i> allows you to add mail addresses in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -275,7 +275,7 @@ $text $mail oliverqueen@queenconsolidated.com ; Contact Oliver Queen
 !bg bg
 
 !color fg
-$text The default delimiter (<i>;</i>) can, of course be changed with the content property <i>!sep</i>.
+$text The default delimiter (<i>;</i>) can, of course, be changed with the content property <i>!sep</i>.
 $nl 2
 
 
@@ -414,7 +414,7 @@ $text $text Bat Family:<br>$nl<br>$points Bruce Wayne ; Alfred Pennyworth ; Luci
 !color fg
 $text The default delimiter (;) can be changed using the content property <i>!sep</i>.
 $nl
-$text You can also change between ordered and unrodered lists and change their styles. Use the <i>!points-type</i> content property to switch between ordered list (<i>ol</i>) or unordered list (<i>ul</i>). Use the <i>!points-style</i> content property to change the style of the points.
+$text You can also change between ordered and unordered lists and change their styles. Use the <i>!points-type</i> content property to switch between ordered list (<i>ol</i>) or unordered list (<i>ul</i>). Use the <i>!points-style</i> content property to change the style of the points.
 
 !box 50
 !bg %code_bg
@@ -437,7 +437,7 @@ $text 2.4.9. %sp%sp%sp%sp $check
 !color fg
 
 $nl 2
-$text Add check boxes inside the document using <i>$check</i>.
+$text Add checkboxes inside the document using <i>$check</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -458,7 +458,7 @@ $text 2.4.10. %sp%sp $table
 !color fg
 
 $nl 2
-$text Add tables in your document using <i>$table</i>. The items for the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
+$text Add tables in your document using <i>$table</i>. The items for the rows are separated by the default delimiter (<i>;</i>) and the rows are separated by the default column separator (<i>|</i>).
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -480,7 +480,7 @@ $text $table Name ; Alias ; Abilities ; City | Oliver Queen ; Green Arrow ; Arch
 !bg bg
 
 !color fg
-$text The item separater and the column separator can be changed using the <i>!sep</i> and the <i>!colsep</i> content properties respectively. Like,
+$text The item separator and the column separator can be changed using the <i>!sep</i> and the <i>!colsep</i> content properties respectively. Like,
 
 !box 50
 !bg %code_bg
@@ -608,7 +608,7 @@ $nl 3
 $text 3.3 Special Characters
 $nl 2
 !color fg
-$text Wave also supports special HTML character. Some of the mostly used special characters come as variables in Wave.
+$text Wave also supports special HTML characters. Some of the mostly used special characters come as variables in Wave.
 $nl
 $text Here's the table of some of the special characters available as variables in Wave:
 $nl 2
