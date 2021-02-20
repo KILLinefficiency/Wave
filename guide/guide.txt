@@ -46,7 +46,7 @@ $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILL
 $nl 3
 $text Before compiling Wave, make sure that you have the following things installed:
 $nl
-$points Go Programming Language ; GNU Make ; A Web Browser
+$points The Go Programming Language ; GNU Make ; A Web Browser
 
 $nl 3
 $text Clone Wave onto your system:
@@ -73,7 +73,6 @@ $text %sp%sp%sp%sp $ make
 $nl 2
 $text An executable for Wave will be produced. You can use the executable as it is or add it to your PATH environment variable.
 
-$text Compiling Wave on a Non-Unix system.
 $nl 2
 $text For a Non-Unix system like Windows, which does not support GNU Make natively, compile Wave directly.
 $nl 2
@@ -89,26 +88,26 @@ $nl 3
 
 !size 25
 !color green
-$text 2. Structure of a Wave script.
+$text 2. Structure of a Wave script
 
 !size 20
 !color fg
 
 $nl 2
 
-$text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extention for a Wave script or not as long as it's a text file. It's better to have a <i>.txt</i> extension.
+$text A Wave script is written in a plain text file. Wave scripts do not follow any extension. You can have an extention for a Wave script or not as long as it's a text file. However, it's better to have a <i>.txt</i> extension.
 
 $nl 2
 
 !color green
 
-$text 2.1 Compiling a Wave script.
+$text 2.1 Compiling a Wave script
 
 $nl 2
 
 !color fg
 
-$text A Wave script can be compiled by passing it to the Wave traspiler.
+$text A Wave script can be compiled by passing it to the Wave traspiler as a command-line argument.
 
 $nl 2
 
@@ -127,7 +126,7 @@ $text The transpiler generates a <i>.html</i> file of the same name. This is the
 
 $nl 2
 
-$text A Wave script consists of three different types of keyword:
+$text A Wave script consists of three different types of keywords:
 
 $nl
 
@@ -146,7 +145,7 @@ $text 2.2 The Page Property Keywords
 !color fg
 
 $nl
-$text The page property keywords start with a <i>~</i>. These properties apply to the entire document. These properties include some important elements that define the look of the document.
+$text The page property keywords start with the symbol <i>~</i>. These properties apply to the entire document. These properties include some important elements that define the look of the document.
 
 $nl
 
@@ -170,7 +169,7 @@ $nl
 
 !color fg
 
-$text The content property keywords start with a <i>!</i>. These properties apply to the entire content that come after the declaration of the content property. These properties define the look of the content in the document.
+$text The content property keywords start with the symbol <i>!</i>. These properties apply to the entire content that come after the declaration of the content property. These properties define the look of the content in the document.
 
 $nl
 
@@ -181,7 +180,7 @@ $nl
 !align center
 !color brown
 
-$table <b>Content Property</b> ; <b>Use</b> ; <b>Example</b> | !bg ;  Sets background for the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size ; <i>!size 50</i> | !align ; Chnages the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
+$table <b>Content Property</b> ; <b>Use</b> ; <b>Example</b> | !bg ;  Sets background color to the content ; <i>!bg red</i> | !tab ; Changes the number of spaces in a tab; <i>!tab 8</i> | !font ; Changes the font ; <i>!font Consolas</i> | !size ; Changes the font size (specified in pixels) ; <i>!size 50</i> | !align ; Changes the alignment of the content ; <i>!align right</i> | !color ; Changes the foreground of the text ; <i>!color blue</i> | !points-type ; Sets the points to ordered (ol) or unordered (ul); <i>!points-type ol</i> | !points-style ; Sets a style to the points ; <i>!points-style lower-roman | !box ; Sets a padding specified in pixels around the content ; <i>!box 15</i> | !box-style ; Sets a visible border to the padding around the content ; <i>!box-style dotted</i> | !sep ; Sets the delimiter ; <i>!sep ,</i> | !colsep ; Sets the column delimiter ; <i>!colsep -</i> | !dim ; Sets the dimentions of a picture in form: width(px)xheight(px) ; <i>!dim 200x100</i> | !default ; Sets all the content properties to default ; <i>!default</i>
 
 $nl 2
 
@@ -196,11 +195,11 @@ $nl
 
 $nl
 
-$text The content keywords start with a <i>$</i>. These keywords define the contents of the docuement. Contents include text, pictures, tables, etc.
+$text The content keywords start with the symbol <i>$</i>. These keywords define the contents of the docuement. Contents include text, pictures, tables, etc.
 
 $nl
 
-$text Here are the content keyword explained:
+$text Here are all the content keywords explained:
 
 $nl 2
 
@@ -233,7 +232,7 @@ $text 2.4.2. %sp%sp%sp%sp $nl
 
 $nl 2
 
-$text <i>$nl</i> adds new line in the document. By default <i>$nl</i> adds only one new line, but more new lines can be added by specifying the number to <i>$nl</i>. Like, <i>$nl 5</i> for five new lines.
+$text <i>$nl</i> adds new line(s) in the document. By default <i>$nl</i> adds only one new line, but more new lines can be added by specifying the number to <i>$nl</i>. Like, <i>$nl 5</i> for five new lines.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -289,7 +288,7 @@ $text 2.4.4. %sp%sp%sp%sp $mail
 
 $nl 2
 
-$text Like <i>$link</i>, <i>$mail</i> allows the user to add mail address in the document.
+$text Like <i>$link</i>, <i>$mail</i> allows you to add mail address in the document.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -314,7 +313,7 @@ $text 2.4.5. %sp%sp%sp%sp $file
 
 $nl 2
 
-$text <i>$file</i> reads the content of a file and adds them to the document.
+$text <i>$file</i> reads the contents of a file and adds them to the document.
 
 !box 50
 !bg %code_bg
@@ -358,7 +357,7 @@ $text Use <i>$quote</i> to add quotations in your document.
 !bg %code_bg
 !color %code_fg
 !font Consolas
-$text $quote %"Being happy doesn't mean you dont have issues. It just means that you're working on them.%"%<br%>%<br%>- Oliver Queen
+$text $quote %"Being happy doesn't mean you don't have issues. It just means that you're working on them.%"%<br%>%<br%>- Oliver Queen
 !font Arial
 !box 0
 !bg bg
@@ -385,7 +384,7 @@ $text $pic resources/images/batman.png
 !bg bg
 
 !color fg
-$text You can also specify the dimensions of the image using the <i>!dim</i> content property. Specify the width and the height of the image respectively in pixels, separated by the character <i>x</i>. Like,
+$text You can also specify the dimensions of the image using the <i>!dim</i> content property. Specify the width and the height of the image respectively in pixels, separated by the character <i>x</i>.
 
 !box 50
 !bg %code_bg
@@ -397,7 +396,7 @@ $text !dim 750x500<br>$pic resources/images/batman.png
 !bg bg
 
 !color fg
-$text You can also choose to set only the width of the image. Like,
+$text You can also choose to set only the width of the image.
 
 !box 50
 !bg %code_bg
@@ -409,7 +408,7 @@ $text !dim 750x<br>$pic resources/images/batman.png
 !bg bg
 
 !color fg
-$text In the same way, you can also choose to set only the height of the image. Like,
+$text In the same way, you can also choose to set only the height of the image.
 
 !box 50
 !bg %code_bg
@@ -421,7 +420,7 @@ $text !dim x500<br>$pic resources/images/batman.png
 !bg bg
 
 !color fg
-$text Also, you can set the size of the image back to normal. Like,
+$text Also, you can set the size of the image back to normal.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -445,7 +444,7 @@ $text 2.4.8. %sp%sp%sp%sp $points
 
 $nl 2
 
-$text Add list of points in the document.
+$text Add a list of points in your document using <i>$points</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -510,7 +509,7 @@ $text 2.4.10. %sp%sp $table
 
 $nl 2
 
-$text Add tables in your document using <i>$table</i>. The items in the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
+$text Add tables in your document using <i>$table</i>. The items for the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -554,7 +553,7 @@ $text 2.4.11. %sp%sp $html
 
 $nl 2
 
-$text Add inline HTML in the document using <i>$html</i>.
+$text Add inline HTML in your document using <i>$html</i>.
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -577,7 +576,7 @@ $text 3.1 Themes
 
 !color fg
 $nl 2
-$text Wave allows documents to have themes. The colors change their shades according to the selected theme. Set the required theme using the <i>~theme</i> page property. Like,
+$text Wave allows documents to have themes. The colors change their shades according to the selected theme. Set the required theme using the <i>~theme</i> page property.
 
 !box 50
 !bg %code_bg
@@ -681,7 +680,7 @@ $table <b>Variable</b> . <b>Special Character / Value</b> | %-< . %< | %-> . %> 
 !color fg
 
 $nl 2
-$text These special character variables can be overwritten if you use the <i>~set</i> content property on them. Therefore, be careful.
+$text These special character variables can be overwritten if you use the <i>~set</i> content keyword on them. Therefore, be careful not to override these variables.
 
 $nl
 $text HTML tags like <i>%<i%></i>, <i>%<b%></i> and <i>%<br%></i> also work in Wave.
