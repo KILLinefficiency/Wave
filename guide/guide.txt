@@ -30,13 +30,11 @@ $nl 3
 $text 1. Getting Wave
 
 $nl
-
 !size 20
 !color fg
 $text Wave is available for free on Github. Wave is available in source code form only.
 
 $nl
-
 $text Wave on Github:
 !align center
 $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILLinefficiency/Wave
@@ -44,6 +42,9 @@ $link https://www.github.com/KILLinefficiency/Wave ; https://www.github.com/KILL
 !align left
 
 $nl 3
+$text This documentation for Wave is written in Wave itself.
+
+$nl 2
 $text Before compiling Wave, make sure that you have the following things installed:
 $nl
 $points The Go Programming Language ; GNU Make ; A Web Browser
@@ -55,9 +56,9 @@ $nl
 !font Consolas
 !color blue
 $text %sp%sp%sp%sp $ git clone https://www.github.com/KILLinefficiency/Wave.git
-
-!font Arial
 !color fg
+!font Arial
+
 $nl 2
 
 $text Build Wave:
@@ -67,9 +68,9 @@ $nl
 !color blue
 $text %sp%sp%sp%sp $ cd Wave
 $text %sp%sp%sp%sp $ make
-
-!font Arial
 !color fg
+!font Arial
+
 $nl 2
 $text An executable for Wave will be produced. You can use the executable as it is or add it to your PATH environment variable.
 
@@ -100,13 +101,11 @@ $text A Wave script is written in a plain text file. Wave scripts do not follow 
 $nl 2
 
 !color green
-
 $text 2.1 Compiling a Wave script
 
 $nl 2
 
 !color fg
-
 $text A Wave script can be compiled by passing it to the Wave traspiler as a command-line argument.
 
 $nl 2
@@ -119,27 +118,22 @@ $text %sp%sp%sp%sp $ wave guide.txt
 !color fg
 !font Arial
 
-!color fg
-
 $nl 2
 $text The transpiler generates a <i>.html</i> file of the same name. This is the final document.
 
 $nl 2
-
 $text A Wave script consists of three different types of keywords:
 
 $nl
 
+!color brown
 !points-type ordered
 !points-style lower-roman
-!color brown
-
 $points The Page Property Keywords ; The Content Property Keywords ; The Content Keywords
 
 $nl 2
 
 !color green
-
 $text 2.2 The Page Property Keywords
 
 !color fg
@@ -168,9 +162,7 @@ $text 2.3 The Content Property Keywords
 $nl
 
 !color fg
-
 $text The content property keywords start with the symbol <i>!</i>. These properties apply to the entire content that come after the declaration of the content property. These properties define the look of the content in the document.
-
 $nl
 
 $text Here's a table of the the content properties and their uses:
@@ -195,21 +187,17 @@ $nl
 
 $nl
 
-$text The content keywords start with the symbol <i>$</i>. These keywords define the contents of the docuement. Contents include text, pictures, tables, etc.
+$text The content keywords start with the symbol <i>$</i>. These keywords define the contents of the document. Contents include text, pictures, tables, etc.
 
 $nl
 
 $text Here are all the content keywords explained:
 
 $nl 2
-
 !color purple
-
 $text 2.4.1. %sp%sp%sp%sp $text
-
-$nl 2
-
 !color fg
+$nl 2
 
 $text As the name suggests, <i>$text</i> adds text in the document.
 !box 50
@@ -223,13 +211,9 @@ $text ~bg green<br>!color yellow<br>$text Hello!
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.2. %sp%sp%sp%sp $nl
-
 !color fg
-
 $nl 2
 
 $text <i>$nl</i> adds new line(s) in the document. By default <i>$nl</i> adds only one new line, but more new lines can be added by specifying the number to <i>$nl</i>. Like, <i>$nl 5</i> for five new lines.
@@ -244,13 +228,9 @@ $text !align center<br>$text Hello World!<br>$nl 3<br>!align right<br>$text How 
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.3. %sp%sp%sp%sp $link
-
 !color fg
-
 $nl 2
 
 $text Insert a link in the document using <i>$link</i>.
@@ -279,13 +259,9 @@ $text !sep ,<br>$link https://www.github.com , Github
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.4. %sp%sp%sp%sp $mail
-
 !color fg
-
 $nl 2
 
 $text Like <i>$link</i>, <i>$mail</i> allows you to add mail address in the document.
@@ -304,17 +280,12 @@ $nl 2
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.5. %sp%sp%sp%sp $file
-
 !color fg
-
 $nl 2
 
 $text <i>$file</i> reads the contents of a file and adds them to the document.
-
 !box 50
 !bg %code_bg
 !color %code_fg
@@ -325,7 +296,6 @@ $text $file some_random_file.txt
 !bg bg
 
 !color fg
-
 $nl
 $text The file is read as it is in Wave. The default tab used while reading is 4 spaces. However, you can use the <i>!tab</i> content property to change this.
 
@@ -342,14 +312,11 @@ $text !tab 8<br>$file some_random_file.txt
 $text This sets the tab to 8 spaces.
 $nl 2
 
+
 $nl 2
-
 !color purple
-
 $text 2.4.6. %sp%sp%sp%sp $quote
-
 !color fg
-
 $nl 2
 
 $text Use <i>$quote</i> to add quotations in your document.
@@ -364,13 +331,9 @@ $text $quote %"Being happy doesn't mean you don't have issues. It just means tha
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.7. %sp%sp%sp%sp $pic
-
 !color fg
-
 $nl 2
 
 $text Insert images into your document using <i>$pic</i>. Pass the absolute or relative path of the image to <i>$pic</i>.
@@ -429,19 +392,13 @@ $text !dim x<br>$pic resources/images/batman.png
 !font Arial
 !box 0
 !bg bg
-
 !color fg
-
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.8. %sp%sp%sp%sp $points
-
 !color fg
-
 $nl 2
 
 $text Add a list of points in your document using <i>$points</i>.
@@ -467,7 +424,6 @@ $text !points-type ol<br>!points-style lower-roman<br>$points Oliver Queen ; Bru
 !font Arial
 !box 0
 !bg bg
-
 !color fg
 
 $text The point styles used in Wave are the same as the list styles used in HTML.
@@ -477,13 +433,10 @@ $nl 2
 $nl 2
 
 !color purple
-
 $text 2.4.9. %sp%sp%sp%sp $check
-
 !color fg
 
 $nl 2
-
 $text Add check boxes inside the document using <i>$check</i>.
 !box 50
 !bg %code_bg
@@ -500,15 +453,11 @@ $nl 2
 
 
 $nl 2
-
 !color purple
-
 $text 2.4.10. %sp%sp $table
-
 !color fg
 
 $nl 2
-
 $text Add tables in your document using <i>$table</i>. The items for the rows are separted by the default delimiter (<i>;</i>) and the rows are separted by the default column separator (<i>|</i>).
 !box 50
 !bg %code_bg
@@ -540,17 +489,13 @@ $text The item separater and the column separator can be changed using the <i>!s
 $text !sep ,<br>!colsep -<br>$table Name , Alias - Oliver Queen , Green Arrow - Barry Allen , The Flash
 !box 0
 !bg bg
-
 !color fg
+
 
 $nl 2
-
 !color purple
-
 $text 2.4.11. %sp%sp $html
-
 !color fg
-
 $nl 2
 
 $text Add inline HTML in your document using <i>$html</i>.
@@ -586,8 +531,8 @@ $text ~theme HorizonDark
 !font Arial
 !box 0
 !bg bg
-
 !color fg
+
 $text Make sure to add the <i>~theme</i> content property at the very top of the document for the theme to properly take effect.
 $nl 2
 
@@ -614,8 +559,8 @@ $text ~set person1 Oliver Queen<br>~set person2 Bruce Wayne
 !font Arial
 !box 0
 !bg bg
-
 !color fg
+
 $text This will set the values of <i>person1</i> and <i>person2</i> to <i>Oliver Queen</i> and <i>Bruce Wayne</i> respectively.
 $nl 2
 
@@ -629,7 +574,6 @@ $text ~set person1 Oliver Queen<br>~set person2 Bruce Wayne<br>$text %-person1 m
 !font Arial
 !box 0
 !bg bg
-
 !color fg
 
 $text The value of the same variable can be changed multiple times.
@@ -642,7 +586,6 @@ $text ~set Robin Jason Todd<br>~set Robin Tim Drake<br>$text %-Robin is the new 
 !font Arial
 !box 0
 !bg bg
-
 !color fg
 
 $text Use <i>%--</i> to escape the <i>%-</i> symbol. Like,
@@ -655,7 +598,6 @@ $text ~set name Barry Allen<br>$text %--name
 !font Arial
 !box 0
 !bg bg
-
 !color fg
 
 $text This will render <i>%-name</i> in the document and not <i>Barry Allen</i>.
