@@ -21,7 +21,7 @@ var contentProp = map[string]string {
     "!sep":                ";",
     "!colsep":             "|",
     "cColor":              "black",
-    "cBGcolor":            "",
+    "cBGColor":            "",
     "cPointsType":         "ul",
     "cWidth":              "",
     "cHeight":             "",

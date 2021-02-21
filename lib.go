@@ -63,14 +63,21 @@ func splitFileText(file string) []string {
 	return lines
 }
 
-func makeHTMLfile(sourceFile string, htmlContent string) {
+func makeHTMLFile(sourceFile string, htmlContent string) {
 	var htmlFileName string = makeHTML(sourceFile)
 	htmlFile, err := os.Create(htmlFileName)
 	if err != nil {
 		fmt.Printf(messageTemplates["fileNotFoundError"], htmlFileName, htmlContent)
+		htmlFile.Close()
 		os.Exit(3)
 	}
-	htmlFile.WriteString(htmlContent)
+
+	_, err = htmlFile.WriteString(htmlContent)
+	if err != nil {
+		fmt.Printf("could not write to newly created file %s beacuse of the following error %s", htmlFileName, err)
+		htmlFile.Close()
+		os.Exit(3)
+	}
 	htmlFile.Close()
 }
 
