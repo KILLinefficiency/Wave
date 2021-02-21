@@ -1,7 +1,6 @@
 package main
 
 var templates = map[string]string {
-
     "waveMark":        "<!--\nThis Document is generated using Wave.\nWave: https://www.github.com/KILLinefficiency/Wave\n-->\n\n",
     "htmlTopBody":     "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>\n",
     "htmlCSS":         "\t<body style = 'background-color: %s; background-image: %s; margin: %spx; border-style: %s;'>\n",

@@ -8,7 +8,7 @@ import (
 func applyProperties(keyword string, property string, defaultMap *map[string]string) {
     switch keyword {
         case "!bg":
-            contentProp["cBGcolor"] = setTheme(property, pageProp["~theme"])
+            contentProp["cBGColor"] = setTheme(property, pageProp["~theme"])
 
         case "!points-type":
             if property == "ordered" {
