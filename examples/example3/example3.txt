@@ -1,0 +1,33 @@
+~theme SnazzyLight
+~title Certificate
+~box 75
+~box-style groove
+
+!color #000000
+
+$nl 3
+!align center
+!size 25
+!color magenta
+$text Certificate of Appreciation awarded to
+
+$nl 3
+!size 70
+!color green
+$text Oliver Queen
+
+$nl 3
+!size 25
+!color blue
+$text %spFor making a donation to the worst affected parts of Glades and helping the common lives of Glades survive during the difficult times.
+
+$nl 3
+
+!dim 75x126
+$pic badge.png
+
+$nl 3
+!color red
+$text Starling City
+
+$nl 3
