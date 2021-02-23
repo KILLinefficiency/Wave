@@ -1,4 +1,5 @@
 ~theme GruvboxDark
+~title The Road Not Taken
 ~box 100
 
 ~set default_black #000000
