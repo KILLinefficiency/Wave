@@ -1,0 +1,52 @@
+~theme GruvboxDark
+~box 100
+
+~set default_black #000000
+
+!align center
+!size 50
+$text <b>The Road Not Taken</b>
+
+$nl 3
+
+!align right
+!size 30
+!color green
+$text <i>-- Robert Frost</i>
+
+$nl 5
+
+!align left
+!size 20
+
+!color purple
+$nl 3
+$text Two roads diverged in a yellow wood,
+$text And sorry I could not travel both
+$text And be one traveller, long I stood
+$text And looked down one as far as I could
+$text To where it bent in the undergrowth;
+
+!color green
+$nl 3
+$text Then took the other, just as fair,
+$text And perhaps having the better claim,
+$text Because it was grassy and wanted wear;
+$text Though as for that the passing there
+$text Had worn them really about the same,
+
+!color yellow
+$nl 3
+$text And both that morning equally lay
+$text In leaves, no steps had trodden black.
+$text Oh, I kept the first for another day!
+$text Yet knowing how way leads on to way,
+$text I doubted if I should ever come back.
+
+!color aqua
+$nl 3
+$text I shall be telling this with a sigh
+$text Somewhere ages and ages hence;
+$text Two roads diverged in a yellow wood, and I--
+$text I took the one less traveled by,
+$text And that has made all the difference.
