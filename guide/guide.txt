@@ -150,7 +150,7 @@ $nl
 !align center
 !color brown
 
-$table <b>Page Property</b> ; <b>Use</b> ; <b>Example</b> | ~title ; Sets the title to tab in Browser Window ; <i>~title Hello!</i> | ~theme ; Sets theme to the document ; <i>~theme HorizonDark</i> | ~bg ; Sets the background color of the document ; <i>~bg green</i> | ~fg ; Sets the default text color ; <i>~fg yellow</i> | ~img ; Sets an image as the document background ; <i>~img batman.png</i> | ~box ; Sets a padding specified in pixels to the document ; <i>~box 100</i> | ~box-style ; Sets a visible border to the padding (~box-style is same as CSS border-styles and uses the same values) ; <i>~box-style solid</i> | ~set ; Declares a variable and sets a value to it ; <i>~set name Bruce Wayne</i>
+$table <b>Page Property</b> ; <b>Use</b> ; <b>Example</b> | ~title ; Sets the title to tab in Browser Window ; <i>~title Hello!</i> | ~theme ; Sets theme to the document ; <i>~theme HorizonDark</i> | ~bg ; Sets the background color of the document ; <i>~bg green</i> | ~fg ; Sets the default text color ; <i>~fg yellow</i> | ~img ; Sets an image as the document background ; <i>~img batman.png</i> | ~box ; Sets a padding specified in pixels to the document ; <i>~box 100</i> | ~box-style ; Sets a visible border to the padding (~box-style is same as CSS border-style and uses the same values) ; <i>~box-style solid</i> | ~set ; Declares a variable and sets a value to it ; <i>~set name Bruce Wayne</i>
 
 $nl 2
 
