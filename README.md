@@ -4,7 +4,7 @@ Wave is a markup language written in Go that transpiles its syntax to HTML with 
 
 ### Getting Wave
 
-1. Clone Wave on yout system:
+1. Clone Wave on your system:
 
 ```
 $ git clone https://www.github.com/KILLinefficiency/Wave.git
