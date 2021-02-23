@@ -10,11 +10,19 @@ Wave is a markup language written in Go that transpiles its syntax to HTML with 
 $ git clone https://www.github.com/KILLinefficiency/Wave.git
 ```
 
-2. Compile Go from the source code:
+2. Compile Wave from the source code:
 
 ```
 $ cd Wave
 $ make
+```
+
+3. If you are a Windows user, then compile Wave as follows:
+
+```
+$ git clone https://www.github.com/KILLinefficiency/Wave.git
+$ cd Wave
+$ go build wave.go lib.go themes.go defaults.go variables.go contentLib.go htmlTemplates.go
 ```
 
 ### The Documentation
