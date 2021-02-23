@@ -2,8 +2,6 @@
 ~title The Road Not Taken
 ~box 100
 
-~set default_black #000000
-
 !align center
 !size 50
 $text <b>The Road Not Taken</b>
