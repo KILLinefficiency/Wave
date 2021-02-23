@@ -41,3 +41,4 @@ See the online hosted examples:
 
 * [Example 1](https://killinefficiency.github.io/Wave/examples/example1/example1.html)
 * [Example 2](https://killinefficiency.github.io/Wave/examples/example2/example2.html)
+* [Example 3](https://killinefficiency.github.io/Wave/examples/example3/example3.html)
