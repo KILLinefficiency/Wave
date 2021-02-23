@@ -1,2 +1,1 @@
-* linguist-vendored
-*.go linguist-vendored=flase
+*.html linguist-detectable=flase
