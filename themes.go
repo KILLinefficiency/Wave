@@ -167,4 +167,28 @@ var themes = map[string]map[string]string {
         "orange":    "#FD8B38",
     },
 
+    "Tomorrow": {
+        "bg":        "#FFFFFF",
+        "fg":        "#4D4D4C",
+        "red":       "#C82829",
+        "green":     "#718C00",
+        "yellow":    "#EAB700",
+        "blue":      "#4271AE",
+        "aqua":      "#3E999F",
+        "orange":    "#F5871F",
+        "purple":    "#8959A8",
+    },
+
+    "TomorrowNight": {
+        "bg":        "#1D1F21",
+        "fg":        "#C5C8C6",
+        "red":       "#CC6666",
+        "green":     "#B5BD68",
+        "yellow":    "#F0C674",
+        "blue":      "#81A2BE",
+        "aqua":      "#8ABEB7",
+        "orange":    "#DE935F",
+        "purple":    "#B294BB",
+    },
+
 }
