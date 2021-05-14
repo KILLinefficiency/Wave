@@ -538,7 +538,7 @@ $nl 2
 
 $text You can choose from the following themes:
 $nl
-$points Default ; OneDark ; Dracula ; Monokai ; GruvboxLight ; GruvboxDark ; SnazzyLight ; LaserWave ; HorizonLight ; HorizonDark ; Nord ; Synthwave84
+$points Default ; OneDark ; Dracula ; Monokai ; GruvboxLight ; GruvboxDark ; SnazzyLight ; LaserWave ; HorizonLight ; HorizonDark ; Nord ; Synthwave84 ; Tomorrow ; TomorrowNight
 $nl
 $text Theme names are case sensitive.
 
